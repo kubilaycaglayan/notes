@@ -10,7 +10,11 @@ nav p {
     text-emphasis: none;
     margin: 0 auto;
 }
-
+nav img {
+    width: 15%;
+ 
+ 
+}
 p:hover {
     text-emphasis: ;
     background-color: aqua;
@@ -38,6 +42,8 @@ nav a:hover {
 
 .mid{
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 .right {
