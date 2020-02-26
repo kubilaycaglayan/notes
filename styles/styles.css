@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0 auto;
+    text-align: center;
+    
+    
+
+}
+
+p {
+    text-emphasis: none;
+    margin: 0 auto;
+}
+
+p:hover {
+    text-emphasis: ;
+    background-color: aqua;
+
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: crimson;
+    display: flex;
+    align-items: center;
+    padding: 1% 5%;
+    box-sizing: border-box;
+}
+
+nav a {
+    text-emphasis: none;
+}
+
+nav a:hover {
+    background-color: cornsilk;
+}
+
+.left {
+    
+
+
+
+}
+
+.mid{
+    margin: 0 auto;
+}
+
+.right {
+    position: relative;
+    right: 1%;
+}
+
+main {
+    margin: 0 auto;
+    padding: 2%;
+    border-style: dashed;
+    border-color: darkcyan;
+    width: 70%;
+    height: 55%;
+    margin-top: 2%;
+}
+
+main p {
+    margin: 0 auto;
+}
