@@ -12,8 +12,6 @@ nav p {
 }
 nav img {
     width: 15%;
- 
- 
 }
 p:hover {
     text-emphasis: ;
@@ -57,13 +55,16 @@ main {
     border-style: dashed;
     border-color: darkcyan;
     width: 70%;
-    height: 1500px;
+    height: 2000px;
    
 }
 .box {
     width: 150px;
     height: 80px;
     border: 3px solid red;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 .float.right {
     float: right;
@@ -75,7 +76,18 @@ main {
 main p {
     border: 3px solid burlywood;
     height: 120px;
-    
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+}
+main p:not(.float) {
+    clear: both;
+
+}
+main p:not(.seperate) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .box.left {
     background-color: lime;
@@ -87,4 +99,23 @@ main p {
 main p .float {
     width: 50px;
     background-color: tomato;
+}
+
+.seperate {
+    margin-top: 25% auto;
+   
+  
+}
+
+.seperate p {
+    height: 45%;
+    padding: 2%;
+}
+
+.seperate img {
+    width: 10%;
+    float: right;
+    border: 5px red solid;
+    margin: 3px;
+    
 }
