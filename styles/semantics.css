@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 3% auto;
+    text-align: center;
+    border-style: solid;
+    border-radius: 6px;
+    border-color: blueviolet;
+    height: 500px;
+    border-width: 10px;
+}
+
+header {
+    width: 100;
+    text-align: center;
+    align-items: center;
+    background-color: darkorange;
+    height: 25%;
+}
+section {
+    float: left;
+    background-color: skyblue;
+    width: 80%;
+    height: 60%;
+}
+article {
+    margin: 0 auto;
+    background-color: lavender;
+    height: 60%;
+    width: 60%;
+    margin-top: 4%;
+}
+
+aside  {
+    background-color: darkkhaki;
+    height: 60%;
+}
+
+footer {
+    background-color:hotpink;
+    clear: both;
+    height: 15%;
+}
+
+textarea {
+    margin: 1% auto;
+    background-color: gainsboro;
+    width: 80%;
+    
+}
