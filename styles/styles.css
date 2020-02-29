@@ -4,19 +4,12 @@
 body {
     margin: 0 auto;
     text-align: center;
-    
-    
-
 }
 p {
     text-emphasis: none;
     margin: 0 auto;
 }
-p:hover {
-    text-emphasis: ;
-    background-color: aqua;
 
-}
 nav {
     width: 100%;
     height: 50px;
@@ -48,18 +41,29 @@ main {
     width: 70%;
     height: 55%;
     margin-top: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-auto-flow: column;
+    gap: 7px;
 }
-
-main p {
-    margin: 3px auto;
-    border: 1px solid brown;
-    width: 20%;
-    font-weight: 600;
-    font-size: 18px;
-}
-
 main a {
     text-decoration: none;
-    color: brown;
-    
+}
+main p {
+    border: 1px solid brown;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: sienna;
+}
+
+main p:hover {
+    text-emphasis: ;
+    background-color: rgb(167, 126, 93);
+
 }
