@@ -1,5 +1,5 @@
 # Personel Project
-In this project I am trying every new technique in a random way. And saving those sketches for future references, though one shouldn't expect any learning material from this site.
+In this project I am trying every new technique as i learn, in a random way. And saving those sketches for future references, though one shouldn't expect any learning material from this site.
 
 # Built with
 1. HTML
