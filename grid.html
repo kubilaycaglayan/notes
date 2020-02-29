@@ -3,23 +3,20 @@
 <head>
     <meta charset=>
     <link href="styles\grid.css" rel="stylesheet">
+    <link href="styles\nav.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
 
 <body>
-    <nav>
-        <div class="nav left">
-            <a href="index.html">
-                <p>HOME</p>
-            </a>
-        </div>
-        <div class="nav mid">
-            <p>LOGO</p>
-        </div>
-        <div class="nav right">
-            <p>BUTTONS</p>
-        </div>
-    </nav>
+    <div id="nav-placeholder">
+        
+    </div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
+        });
+    </script>
     <main>
         <h1>GRID</h1>
         <div class="grid">
