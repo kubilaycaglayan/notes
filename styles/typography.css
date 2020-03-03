@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0 auto;
+    text-align: center;
+}
+p {
+    text-emphasis: none;
+    margin: 0 auto;
+}
+p:hover {
+    text-emphasis: ;
+    background-color: aqua;
+
+}
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: crimson;
+    display: flex;
+    align-items: center;
+    padding: 1% 5%;
+    box-sizing: border-box;
+}
+nav a {
+    text-emphasis: none;
+}
+nav a:hover {
+    background-color: cornsilk;
+}
+.mid{
+    margin: 0 auto;
+}
+.right {
+    position: relative;
+    right: 1%;
+}
+main {
+    margin: 0 auto;
+    padding: 2%;
+    border-style: dashed;
+    border-color: darkcyan;
+    width: 90%;
+    height: 65%;
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(10, auto);
+    grid-auto-flow: column;
+    gap: 1%;
+    
+}
+.box {
+    border: 2px aquamarine solid;
+    margin: 0.5% auto;
+    font-size: 20px;
+    background: 
+    repeating-radial-gradient(
+      circle at 0 0, 
+      #eee,
+      #ccc 50px
+    );
+}
+h4 {
+    margin: 0 auto;
+    background-color: rgb(106, 42, 151);
+    background: linear-gradient( to right, white, rgba(106, 42, 151, 0.705) 9% ,rgb(106, 42, 151, 0.7) 91%, white);
+    color: rgb(255, 252, 205);
+    height: 25px;
+    line-height: 25px;
+    width: fit-content;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 15%;
+}
+.typo1 {
+    height: 35px;
+    line-height: 35px;
+    color: chartreuse;
+    font-size: small;
+    background: rgb(214, 166, 102);
+}
+.typo2 {
+    color: rgb(83, 83, 83);
+    font-size: 22px;
+}
+.red {
+    color: rgb(206, 74, 57);
+}
+.typo3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.green {
+    color: rgb(31, 153, 92);
+}
+.typo4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(39, 35, 35);
+    font-weight: 100;
+    font-size: 50px;
+    font-style: italic;
+}
+.overl {
+    text-decoration: overline;
+}
+.lntr {
+    text-decoration: line-through;
+}
+.typo6 {
+    padding: 3%;
+    color: rgb(190, 52, 52);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(209, 129, 129);
+}
+.indent {
+    text-indent: 10%;
+}.shadow {
+    text-shadow: 3px 6px 2px rgba(0, 0, 0, .3);
+}
+.typo7 {
+    font-size: 50px;
+}

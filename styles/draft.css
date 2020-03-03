@@ -12,7 +12,6 @@ p {
 p:hover {
     text-emphasis: ;
     background-color: aqua;
-
 }
 nav {
     width: 100%;
@@ -36,7 +35,6 @@ nav a:hover {
     position: relative;
     right: 1%;
 }
-
 main {
     margin: 0 auto;
     padding: 2%;
