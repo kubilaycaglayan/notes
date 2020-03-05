@@ -1,0 +1,151 @@
+body > * {
+    border: 1px rgb(25, 0, 255) solid;
+}
+
+body {
+    border-top: 5px solid #e56038;
+    background: #ebe8de;
+    font-family: 'Open Sans', sans-serif;
+    color: #333333;
+}
+
+input
+{font-family: 'Open Sans', sans-serif;
+font-size:16px;
+padding: 7px;
+outline: 0;
+border:0;
+width:250px;
+background: #EBE8DE;
+border-radius:5px;}
+input[type=submit]
+{width:auto;
+padding: 5px 18px;
+line-height:25px;
+text-shadow:none;
+cursor:pointer;
+box-shadow: none;
+background: #333333;
+color: #fff;}
+
+p
+{margin: 5px 0;
+line-height: 25px;}
+
+a
+{text-decoration: none;
+color: inherit;
+transition: color .5s ease;}
+
+strong
+{font-weight: bold;}
+
+figcaption
+{line-height: 25px;
+font-size:14px;
+width:200px;}
+
+figcaption strong
+{border-bottom: 1px solid #D6D0C1;
+padding-bottom:10px;
+margin: 10px 0;
+display:block;}
+
+header
+{
+position:relative;
+width:auto;
+max-width:900px;
+margin: 0 auto 20px auto;}
+
+header h1
+{margin: 35px 0 0 0;
+font-size: 55px;
+color: #e56038;
+font-family: 'Baumans', cursive;}
+
+header p
+{font-family: 'Open Sans', sans-serif;
+font-size: 16px;
+color: #4A463B;
+margin-left:132px;}
+
+nav ul
+{list-style:none;}
+
+nav ul li
+{display:block;
+float:left;
+padding:3px 15px;}
+
+nav ul li a
+{font-family: 'Open Sans', sans-serif;
+text-transform: uppercase;
+transition: all 1.25s ease;
+font-weight: bold;
+}
+
+nav ul li a:hover
+{color: #E56038;}
+
+/* Slider */
+
+#slider_content1, #slider_content2, #slider_content3
+{line-height: 25px;
+font-family: 'Open Sans', sans-serif;
+width:350px;
+position:absolute;
+top:15%;
+left:15%;
+display:none;
+z-index:11;}
+
+#slider_content1
+{display:block;}
+
+.container
+{width:auto;
+margin: 0 auto;
+position:relative;}
+
+#slider_content1 h3, #slider_content2 h3, #slider_content3 h3
+{color:#EBE8DE;
+font-size:25px;
+font-weight:bold;
+margin-bottom:10px;
+background-color:#333333;
+padding:10px 15px;
+border-radius: 15px 0 15px 0;
+display:inline-block;}
+
+#slider_content1 p, #slider_content2 p, #slider_content3 p
+{margin:0 0 30px 0;
+color:#4a463b;
+background-color:#EBE8DE;
+padding:10px 15px;
+border-radius: 5px;}
+
+/* spacer */
+
+#spacer
+{width:auto;
+height:70px;
+background-color:#e56038;
+position:relative;
+font-family: 'Open Sans', sans-serif;
+color:#fff;
+font-size:18px;}
+
+#spacer p
+{margin-top:22px;
+width:auto;
+position:absolute;
+left:50%;
+margin-left:-450px;}
+
+#spacer .search
+{margin-top:15px;
+width:auto;
+position:absolute;
+right:50%;
+margin-right:-480px;}
