@@ -2,14 +2,52 @@
 <head>
     <meta charset=>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
 </head>
-
+<style>
+  * {
+    border: 1px rgb(255, 156, 156) solid;
+  }
+  #asd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: chartreuse;
+  }
+</style>
 <body>
    
     <main>
-        <h1>BOOTSTRAP</h1>
-        
+        <h1 class="text-center">BOOTSTRAP 3</h1>
+        <div class="container-fluid text-center">
+          <div class="row">
+              <div class="border col-lg-4 col-md-6 col-xl-3">
+                <p>Box 1</p>
+                <div class="d-xl-none">
+                  <div class="row">
+                      <div class="border border-warning col-12"><p>Box 1 -1</p></div>
+                  </div>
+                  <div class="row">
+                      <div class="border border-warning col-sm-6 col-lg-3"><p>Box 1 -2</p></div>
+                      <div class="border border-warning col-sm-6 col-lg-3"><p>Box 2 -3</p></div>
+                      <div class="border border-warning col-sm-6 col-lg-3"><p>Box 1 -2</p></div>
+                      <div class="border border-warning col-sm-6 col-lg-3"><p>Box 2 -3</p></div>
+                  </div>    
+                </div> 
+            </div>
+              <div class="border col-lg-4 col-md-6 col-xl-3" id="asd"><p>Box 2</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 3</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 4</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 5</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 6</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 7</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 8</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 9</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 10</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 11</p></div>
+              <div class="border col-lg-4 col-md-6 col-xl-3"><p>Box 12</p></div>
+          </div>
+          </div>
+        </div>
     </main>
 </body>
 </html>
