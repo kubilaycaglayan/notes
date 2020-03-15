@@ -1,0 +1,45 @@
+* {
+  border: 1px red solid;
+}
+
+main {
+  text-align: center;
+}
+
+main > h1 {
+  background-color: #cecece;
+  margin: 0;
+}
+
+main > h2 {
+  background: -webkit-gradient(linear, left top, left bottom, from(red), to(pink));
+  background: linear-gradient(to bottom, red, pink);
+  padding: 2px;
+  width: 50%;
+  margin: 10px auto;
+}
+
+main > h2:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(darkred), to(pink));
+  background: linear-gradient(to bottom, darkred, pink);
+}
+
+main > section .second-article {
+  color: #5e5e5e;
+  border: 5px orange solid;
+  background-color: #cecece;
+  font-size: 25px;
+}
+
+main > section .first-article {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+main > section .first-article ol {
+  color: lightsalmon;
+  font-weight: 700;
+  font-size: 25px;
+  border: 2px slategray solid;
+}
+/*# sourceMappingURL=preprocessors.css.map */
