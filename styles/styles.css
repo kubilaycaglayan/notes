@@ -38,14 +38,9 @@ main {
     padding: 2%;
     border-style: dashed;
     border-color: darkcyan;
-    width: 70%;
+    width: 90%;
     height: 55%;
     margin-top: 2%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    grid-auto-flow: column;
-    gap: 7px;
 }
 main a {
     text-decoration: none;
@@ -66,4 +61,11 @@ main p:hover {
     text-emphasis: ;
     background-color: rgb(167, 126, 93);
 
+}
+
+main ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 30px;
 }
