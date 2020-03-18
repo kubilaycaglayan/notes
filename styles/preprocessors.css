@@ -1,14 +1,14 @@
-* {
-  border: 1px red solid;
-}
-
 main {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   text-align: center;
 }
 
 main > h1 {
-  background-color: #cecece;
-  margin: 0;
+  background: -webkit-gradient(linear, left top, right top, from(black), color-stop(4%, white), color-stop(15%, #cecece), color-stop(85%, #cecece), color-stop(96%, white), to(black));
+  background: linear-gradient(to right, black, white 4%, #cecece 15%, #cecece 85%, white 96%, black);
+  width: 25%;
+  margin: 1% auto;
 }
 
 main > h2 {
@@ -22,24 +22,39 @@ main > h2 {
 main > h2:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(darkred), to(pink));
   background: linear-gradient(to bottom, darkred, pink);
+  cursor: pointer;
 }
 
-main > section .second-article {
-  color: #5e5e5e;
-  border: 5px orange solid;
-  background-color: #cecece;
-  font-size: 25px;
+main > section > article {
+  width: 48%;
+  margin: 0 auto;
+  padding: 1%;
 }
 
 main > section .first-article {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 12px;
+  background: -webkit-gradient(linear, left bottom, right top, from(aqua), to(white));
+  background: linear-gradient(to right top, aqua, white);
 }
 
-main > section .first-article ol {
+main > section .second-article {
+  color: #5e5e5e;
+  border: 10px orange solid;
+  background-color: #cecece;
+  font-size: 25px;
+}
+
+main > section .second-article ol {
+  width: 80%;
+}
+
+main > section ol {
   color: lightsalmon;
   font-weight: 700;
   font-size: 25px;
   border: 2px slategray solid;
+  width: 35%;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=preprocessors.css.map */

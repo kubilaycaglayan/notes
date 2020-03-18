@@ -1,27 +1,45 @@
-$blue: rgb(89, 89, 167);
-$textblack: rgb(94, 94, 94);
-$bgwhite rgb(206, 206, 206)
-$bordercolor orang
-$borderthickness: 5px;
+@import './variables'
 
-main {
-    text-align: center;
-    > section {
-        .second-article {
-            color: $textblack;
-            border: $borderthickness $bordercolor solid;
-            background-color: $bgwhite;
-            font-size: 25px;
-        }
-        .first-article {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 11px;
-            ol {
-                color: lightsalmon;
-                font-weight: 700;
-                font-size: 25px;
-                border: 2px slategray solid;
-            }
-        }
-    }
-}
+=margina($my: 0)
+    margin: $my auto
+
+main
+    box-sizing: border-box
+    text-align: center
+    > h1 
+        background: linear-gradient(to right, black, white 4%, $bgwhite 15%, $bgwhite 85%, white 96%, black)
+        width: percentage(1/4)
+        +margina(1%)
+    > h2 
+        background: linear-gradient(to bottom, red, pink)
+        padding: 2px
+        width: 50%
+        +margina(10px)
+        &:hover 
+            background: linear-gradient(to bottom, rgb(139, 0, 0), pink)
+            cursor: pointer
+            
+    > section 
+        > article
+            width: 50% - 2%
+            +margina()
+            padding: 1%
+        .first-article 
+            font-family: Arial, Helvetica, sans-serif
+            font-size: 12px
+            background: linear-gradient(to right top, aqua, white)
+        .second-article 
+            color: $textblack
+            border: $borderthickness $bordercolor solid
+            background-color: $bgwhite
+            font-size: 25px
+            ol
+                width: 80%
+        ol
+            color: lightsalmon
+            font-weight: 700
+            font-size: 25px
+            border: 2px slategray solid
+            width: 35%
+            +margina()
+    

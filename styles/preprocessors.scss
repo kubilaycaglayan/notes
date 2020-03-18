@@ -2,7 +2,7 @@ $blue: rgb(89, 89, 167);
 $textblack: rgb(94, 94, 94);
 $bgwhite: rgb(206, 206, 206);
 $bordercolor: orange;
-$borderthickness: 5px;
+$borderthickness: 1px;
 
 * {
     border: 1px red solid;
@@ -20,6 +20,7 @@ main {
         margin: 10px auto;
         &:hover {
             background: linear-gradient(to bottom, rgb(139, 0, 0), pink);
+            cursor: pointer;
         }
     }
     text-align: center;
