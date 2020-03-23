@@ -46,3 +46,10 @@ p directory # funny
 puts "--------"
 
 puts "hello".gsub("l", "r")
+
+puts "bunlar büyük yazılsın".upcase
+puts "BUNLAR KÜÇÜK YAZILSIN".downcase
+
+=begin
+    lost of lines of comments
+=end
