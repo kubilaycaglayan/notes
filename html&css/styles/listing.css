@@ -10,7 +10,6 @@ p {
     margin: 0 auto;
 }
 p:hover {
-    text-emphasis: ;
     background-color: aqua;
 }
 nav {

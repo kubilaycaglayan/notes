@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+.mid{
+    margin: 0 auto;
+}
+.right {
+    position: relative;
+    right: 1%;
+}
+main {
+    margin: 0 auto;
+    padding: 2%;
+    border-style: dashed;
+    border-color: darkcyan;
+    width: 70%;
+    height: 55%;
+    margin-top: 2%;
+}
