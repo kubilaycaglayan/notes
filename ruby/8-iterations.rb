@@ -20,6 +20,13 @@ for element in holy_array
     print element
 end
 puts ""
+# UNTIL
+puts "until"
+a = 5
+until a == -3 do
+    print a
+    a -= 1
+end
 # EACH
 holy_array.each do |name_whatever_you_want|
     print name_whatever_you_want

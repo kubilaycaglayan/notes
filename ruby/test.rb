@@ -1,11 +1,20 @@
-puts 0
+array = [1,2,3,4]
+array2 = ["asd", "qwe", 1]
 
-array = []
+#array2.delete_at(1)
 
-1.upto(11) {
-   |x| array << x
-}
+string = ""
 
-print array
+array2.each do |x|
+   string << x.to_s
+end
 
-puts "-- -- --"
+puts string
+
+puts "----"
+
+print %w{ asd a sd  asdadsa }
+puts ""
+puts array2.join
+
+print string.split(" ")

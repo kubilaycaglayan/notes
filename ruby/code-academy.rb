@@ -1,10 +1,9 @@
-def qu(msg="question?", ans="dummy")
-    ask = true
+def qu(msg="question?", ans="dummy", ask = true)
     if ask
         puts msg.to_s
         not_answered = true
         while not_answered
-            case @ans = gets.chomp
+            case @ans = gets.chomp 
             when ""
                 puts "Please give an answer"
             else
@@ -36,4 +35,209 @@ def s_th
     end
 end
 
-s_th
+def redactor
+    text = qu("This is a word REDACTOR. Type the text you want it to be readacted...", "This is a text we are trying if our redactor works or not if it works then it works if it not works then it's not working")
+    dodge_words = multiple_answer
+    words = text.split(" ")
+    dodge_words_upcased = dodge_words.map do |dodge|
+        dodge.upcase
+    end
+    redacted_text = ""
+    words.each do |word|
+        if (dodge_words.include?(word)) || (dodge_words_upcased.include?(word.upcase))
+            redacted_text << "**** "
+        else
+            redacted_text << "#{word} "
+        end
+    end
+    puts redacted_text
+end
+
+def multiple_answer
+    quantity_not_integer = true
+    while quantity_not_integer
+        quantity = qu("How many words you want to redact?(1-4)", "3").to_i
+        if (1..4).include?(quantity)
+            quantity_not_integer = false 
+        end
+    end
+    counter = quantity
+    answer_list = Array.new(quantity, "")
+    while counter > 0
+        answer_list[quantity-counter] = qu("Put the word you want to redact...", "workS")
+        counter -= 1
+    end
+    return answer_list
+end
+
+def word_counter
+    text = qu("Please put a text that you want to count the numbers of occurance of the words...", "asd asd Sample text text is is is")
+    frequencies = Hash.new(0)
+    words = text.split(" ")
+    words.each do |word|
+        frequencies[word] += 1
+    end
+    frequencies = frequencies.sort_by do |word, frequence|
+        frequence
+    end
+    frequencies.reverse!
+    frequencies.each do |word, frequence|
+        puts "#{word}: #{frequence}"
+    end
+end
+
+def sort_optional(arr, rev=false)
+    if rev
+        arr = arr.sort do |first, second|
+            second <=> first
+        end
+    else
+        arr = arr.sort do |first, second|
+            first <=> second
+        end
+    end
+    print arr
+end
+
+def imdb
+    movies = { the_matrix: "10", son: "1" } 
+    while true
+        puts "___________________________"
+        puts "What would you like to do?"
+        puts "-- Type 'add' to add a movie."
+        puts "-- Type 'update' to update a movie."
+        puts "-- Type 'display' to display all movies."
+        puts "-- Type 'delete' to delete a movie."
+        request = qu("-- Type 'exit' to exit the program.", "display")
+        case request
+        when "add"
+            add_movies(movies)
+        when "update"
+        update_movies(movies)
+        when "display"
+            display_movies(movies)
+        when "delete"
+            delete_movies(movies)
+        when "exit"
+            break
+        else
+            puts "Please make an appropriate choice..."
+        end
+    end
+
+end
+
+def add_movies(movies)
+    new_movie = qu("Please type the name of the new movie...", "The Green Mile")
+    if movies[new_movie.to_sym].nil?
+        new_rating = qu("Please type the rating of #{new_movie}?", 11)
+        movies[new_movie.to_sym] = new_rating
+        puts "New movie added. #{new_movie} with a rating of #{movies[new_movie.to_sym]}"
+    else
+        puts "That movie already exist..."
+    end
+end
+
+def update_movies(movies)
+    movie_will_be_updated = qu("Please type the name of the movie that you want to update...", "the_matrix")
+    if movies[movie_will_be_updated.to_sym].nil?
+        puts "That movie doesn't exist"
+    else
+        new_rating = qu("Please enter the new rating...", 15)
+        movies[movie_will_be_updated.to_sym] = new_rating
+        puts "The movie #{movie_will_be_updated} is updated, new rating is #{movies[movie_will_be_updated.to_sym]}"
+    end
+end
+
+def display_movies(movies)
+    puts "These are your movies"
+    movies.each do |movie, rating|
+        puts "#{movie}: #{rating}"
+    end
+end
+
+def delete_movies(movies)
+    movie_will_be_deleted = qu("Please type the name of the movie that you want to delete...","son")
+    if movies[movie_will_be_deleted.to_sym].nil?
+        puts "Movie couldn't be found"
+    else
+        movies.delete(movie_will_be_deleted.to_sym)
+        puts "Movie deleted (#{movie_will_be_deleted})"
+        puts movies
+    end
+end
+
+def first_n_primes
+    require 'prime'
+    while true
+        n = qu("Please tell me how many prime numbers you would like to get?(between 1 and 99)", "5").to_i
+        case n
+        when 0
+            next
+        else
+            break
+        end
+    end
+    print Prime.first n
+end
+
+class Machine
+    def initialize(username, password)
+        @username = username
+        @password = password
+        @files = {}
+        @@users[username] = password
+        puts "#{@username} logged in."
+    end
+    @@users = {}
+    def create_file(filename)
+        now = Time.new.strftime("%Y-%m-%d %H:%M")
+        @files[filename] = now
+        puts "A new file created by #{@username} on #{now}"
+        puts @files
+    end
+    def Machine.get_users
+        return @@users
+    end
+    def update_file(filename, new_filename)
+        @files[new_filename] = @files.delete(filename)
+        puts "\"#{filename}\" is updated to \"#{new_filename}\"."
+        puts @files
+    end
+    def delete_file(filename)
+        @files.delete(filename)
+        puts "\"#{filename}\" deleted by #{@username}"
+        puts @files
+    end
+end
+def run_machine
+    my_computer = Machine.new("Kubilay", "abcd")
+    my_computer.create_file("first file")
+    my_computer.create_file("second file")
+    my_computer.create_file("third file")
+    my_computer.update_file("first file", "updated file")
+    my_computer.delete_file("second file")
+end
+
+class Account
+    def initialize(name, balance=100)
+        @name = name
+        @balance = balance
+        puts "#{@name} opened an account with #{@balance} liras."
+    end
+    def display_balance(pin_number)
+        puts "#{@name} has #{@balance} liras."
+    end
+    private
+    def pin_number
+        @pin = 1234
+    end
+    def pin_error
+        "Access denied: Wrong PIN..."
+    end
+end
+def run_account
+    my_account = Account.new("Kubilay", 99)
+    my_account.display_balance(1234)
+end
+run_account
