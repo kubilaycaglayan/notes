@@ -226,6 +226,7 @@ class Account
         @balance = balance
         puts "#{@name} opened an account with #{@balance} liras."
     end
+    public
     def display_balance(pin_number)
         if pin_number == pin
             puts "#{@name} has #{@balance} liras."
@@ -260,13 +261,8 @@ class Account
     def pin_error
         puts "Access denied: Wrong PIN..."
     end
-    public
-    def open
-        name = qu("your name please...", "Jamilia")
-        amount = qu("How much money you have?", 55)
-        Account.new(name, amount)
-    end
 end
+
 def run_account
     my_account = Account.new("Kubilay", 99)
     my_account.display_balance(1234)
@@ -276,23 +272,51 @@ def run_account
     my_account.withdraw(1234, 1)
 end
 #run_account
-def liveAccount
-    puts "You can: \n-open(opens a new account)\n-display\n-withdraw\n-deposit\n"
-    selection = qu("What do you want to do?", "open")
-    case qu
-    when "open"
-        Account.open
-    when "display"
-    when "withdraw"
-    when "deposit"
-    else
-        puts "please make an appropriate selection"
+class LiveBank
+    def initialize
+    puts "The Bank is On Air now..."
+    liveAccount
     end
-    while true
+    def liveAccount
+        while true
+            puts "You can: \n-open(opens a new account)\n-display\n-withdraw\n-deposit\n"
+            selection = qu("What do you want to do?", "open")
+            case selection
+            when "open"
+                open_live
+            when "display"
+                display_live
+            when "withdraw"
+                withdraw_live
+            when "deposit"
+                deposit_live
+            else
+                puts "please make an appropriate selection"
+            end
+        end
+    end
 
+    def open_live
+        name = qu("your name please...", "Jamilia")
+        amount = qu("How much money you have?", "55").to_i
+        $instance = Account.new(name, amount)
+    end
+    def display_live
+        pin_number = qu("Display, pin number...", 1234).to_i
+        $instance.display_balance(pin_number)
+    end
+    def withdraw_live
+        amount = qu("Amount that you want to withdraw please...", 10).to_i
+        pin_number = qu("pin number...", 1234).to_i
+        $instance.withdraw(pin_number, amount)
+    end
+    def deposit_live
+        amount = qu("Amount that you want to add please...", 10).to_i
+        pin_number = qu("pin number...", 1234).to_i
+        $instance.deposit(pin_number, amount)
     end
 end
-liveAccount
+LiveBank.new
 
 
 class SavingAccount < Account

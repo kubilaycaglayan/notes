@@ -1,14 +1,20 @@
-hash = {
-  :asd => "bnm",
-  :key => "value",
-   3 => 5
-}
+class Student
+    def initialize(name)
+        @name = name
+    end
+    def greeting
+        puts "Hi I am #{@name}."
+    end
+end
 
-hash2 = {
-   asd2: "bnm",
-   key2: "value",
-    32 => 5
- }
+sema = Student.new("Sema")
+ceyda = Student.new("Ceyda")
+hande = Student.new("Hande")
+sema.greeting
+ceyda.greeting
+hande.greeting
 
- empty_hash = Hash.new
-puts empty_hash.length
+def instance_creator(name)
+    name = Student.new(name.capitalize)
+end
+
