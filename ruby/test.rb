@@ -1,11 +1,14 @@
-puts 0
-
-array = []
-
-1.upto(11) {
-   |x| array << x
+hash = {
+  :asd => "bnm",
+  :key => "value",
+   3 => 5
 }
 
-print array
+hash2 = {
+   asd2: "bnm",
+   key2: "value",
+    32 => 5
+ }
 
-puts "-- -- --"
+ empty_hash = Hash.new
+puts empty_hash.length
