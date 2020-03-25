@@ -1,5 +1,3 @@
-require 'time'
-
 time_now = Time.now
 #Time.new is synonym
 
@@ -71,10 +69,5 @@ puts give_me_date(1)
 puts give_me_date(2)
 
 puts "-----------------"
-puts "This is a different scenario, when you add 1 it adds 1 day"
-puts "MAGIC - next 5 fridays"
-t1 = DateTime.now
-t2 = DateTime.now + 30
-next_30_days = t1..t2
-# Example use
-puts next_30_days.select(&:friday?).map(&:day)
+
+puts Time.local(Time.now)
