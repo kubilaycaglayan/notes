@@ -1,4 +1,5 @@
-def qu(msg="question?", ans="dummy", ask = true)
+def qu(msg="question?", ans="dummy")
+    ask = true
     if ask
         puts msg.to_s
         not_answered = true
@@ -226,18 +227,87 @@ class Account
         puts "#{@name} opened an account with #{@balance} liras."
     end
     def display_balance(pin_number)
-        puts "#{@name} has #{@balance} liras."
+        if pin_number == pin
+            puts "#{@name} has #{@balance} liras."
+        else
+            pin_error
+        end
+    end
+    def withdraw(pin_number, amount)
+        if pin_number == pin
+            if @balance < amount
+                puts "There's not that much money! Demand is #{amount} liras but #{@name} has #{@balance} liras."
+            else
+                @balance -= amount
+                puts "Withdraw #{amount}. New balance is #{@balance}."
+            end
+        else
+            pin_error
+        end
+    end
+    def deposit(pin_number, amount)
+        if pin_number == pin
+            @balance += amount
+            puts "#{@name} added #{amount} liras. New balance is #{@balance} liras."
+        else
+            pin_error
+        end
     end
     private
-    def pin_number
+    def pin
         @pin = 1234
     end
     def pin_error
-        "Access denied: Wrong PIN..."
+        puts "Access denied: Wrong PIN..."
+    end
+    public
+    def open
+        name = qu("your name please...", "Jamilia")
+        amount = qu("How much money you have?", 55)
+        Account.new(name, amount)
     end
 end
 def run_account
     my_account = Account.new("Kubilay", 99)
     my_account.display_balance(1234)
+    my_account.withdraw(1234, 12)
+    my_account.deposit(1234,100)
+    my_account.withdraw(1234, 189)
+    my_account.withdraw(1234, 1)
 end
-run_account
+#run_account
+def liveAccount
+    puts "You can: \n-open(opens a new account)\n-display\n-withdraw\n-deposit\n"
+    selection = qu("What do you want to do?", "open")
+    case qu
+    when "open"
+        Account.open
+    when "display"
+    when "withdraw"
+    when "deposit"
+    else
+        puts "please make an appropriate selection"
+    end
+    while true
+
+    end
+end
+liveAccount
+
+
+class SavingAccount < Account
+    def initialize(name, balance=0)
+        @name = name
+        @balance = balance
+        puts "#{@name} opened a Saving Account with #{@balance} liras."
+    end
+end
+def run_savingaccount
+    my_account = SavingAccount.new("Kubilay", 99)
+    my_account.display_balance(1234)
+    my_account.withdraw(1234, 12)
+    my_account.deposit(1234,100)
+    my_account.withdraw(1234, 189)
+    my_account.withdraw(1234, 1)
+end
+#run_savingaccount

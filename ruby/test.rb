@@ -1,20 +1,14 @@
-array = [1,2,3,4]
-array2 = ["asd", "qwe", 1]
+hash = {
+  :asd => "bnm",
+  :key => "value",
+   3 => 5
+}
 
-#array2.delete_at(1)
+hash2 = {
+   asd2: "bnm",
+   key2: "value",
+    32 => 5
+ }
 
-string = ""
-
-array2.each do |x|
-   string << x.to_s
-end
-
-puts string
-
-puts "----"
-
-print %w{ asd a sd  asdadsa }
-puts ""
-puts array2.join
-
-print string.split(" ")
+ empty_hash = Hash.new
+puts empty_hash.length

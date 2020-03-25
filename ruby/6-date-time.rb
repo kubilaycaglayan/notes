@@ -67,3 +67,7 @@ def give_me_date(n)
 end
 puts give_me_date(1)
 puts give_me_date(2)
+
+puts "-----------------"
+
+puts Time.local(Time.now)
