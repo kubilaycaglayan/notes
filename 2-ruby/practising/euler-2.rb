@@ -11,4 +11,5 @@ def sum_even_fibonacci_until m
     p sum
 end
 
-sum_even_fibonacci_until 4000000
+#sum_even_fibonacci_until 4000000
+

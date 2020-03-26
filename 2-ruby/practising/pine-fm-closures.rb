@@ -30,7 +30,7 @@ def profile description, &block
 end
 saved_block = Proc.new do
   10000000.times do
-    2*2
+    2*10
   end
 end
-#profile 'How long this block will take?: ', &saved_block
+profile 'How long this block will take?: ', &saved_block
