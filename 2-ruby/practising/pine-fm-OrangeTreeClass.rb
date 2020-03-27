@@ -13,10 +13,10 @@ class OrangeTree
     end
     def one_year_passes
         @age += 1
-        if @age > (50 + rand(15))
+        if @age > (70 + rand(15))
             die
         end
-        if @age < 40
+        if @age < (40 + rand(20))
             (@height += (1+rand(2))) if @height < (40 + rand(50))
         end
         if @age > (5 + rand(5))
@@ -42,10 +42,15 @@ end
 
 my_tree = OrangeTree.new
 
-230.times do
+2000.times do
     my_tree.one_year_passes
     if rand(4) == 1
         puts "#{my_tree.age} yo, #{my_tree.height} meters, has #{my_tree.fruit} fruits"
         my_tree.pick_orange if rand(3) == 1
+        sleep 0.2
+        3.times do
+            print "."
+            sleep 0.1
+        end
     end
 end

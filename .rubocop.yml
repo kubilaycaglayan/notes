@@ -3,6 +3,7 @@ AllCops:
     - "README.md"
     - "Guardfile"
     - "Rakefile"
+    - "./2-ruby/practising/*"
 
   DisplayCopNames: true
 
