@@ -8,30 +8,30 @@ def bubble_sort(array)
   array
 end
 
-def bubble_sort_opt-1(array)
+def bubble_sort_opt_1(array)
   length = array.length
-  (length - 1).times do |n|
-    (0...(length - (1 + n))).each do |i|
+  (length - 1).times do |num|
+    (0...(length - (1 + num))).each do |i|
       next unless array[i] > array[i + 1]
 
       array[i], array[i + 1] = array[i + 1], array[i]
-      # print "opt-1 #{array}"
+      # print "opt_1 #{array}"
       # puts
     end
   end
   array
 end
 
-def bubble_sort_opt-2(array)
+def bubble_sort_opt_2(array)
   length = array.length
-  (length - 1).times do |n|
+  (length - 1).times do |num|
     not_sorted = true
-    (0...(length - (1 + n))).each do |i|
+    (0...(length - (1 + num))).each do |i|
       next unless array[i] > array[i + 1]
 
       array[i], array[i + 1] = array[i + 1], array[i]
       not_sorted = false
-      # print "opt-2 #{array}"
+      # print "opt_2 #{array}"
       # puts
     end
     return array if not_sorted
@@ -39,18 +39,18 @@ def bubble_sort_opt-2(array)
   array
 end
 
-def make_array(n)
+def make_array(num)
   sort_this_array = []
-  n.times do
-    sort_this_array << rand(n * 10)
+  num.times do
+    sort_this_array << rand(num * 10)
   end
   sort_this_array.uniq!
-  main_array = sort_this_array
-  $opt-0_mix = main_array.clone
-  $opt-1_mix = main_array.clone
-  $opt-2_mix = main_array.clone
 end
-make_array 1000
+
+main_array = make_array 1000
+opt_0_mix = main_array.clone
+opt_1_mix = main_array.clone
+opt_2_mix = main_array.clone
 
 def profile(description, &block)
   start_time = Time.now
@@ -59,16 +59,16 @@ def profile(description, &block)
   description + duration + ' seconds.'
 end
 
-opt-0 = proc do
-  bubble_sort $opt-0_mix
+opt0 = proc do
+  bubble_sort opt_0_mix
 end
-opt-1 = proc do
-  bubble_sort_opt-1 $opt-1_mix
+opt1 = proc do
+  bubble_sort_opt_1 opt_1_mix
 end
-opt-2 = proc do
-  bubble_sort_opt-2 $opt-2_mix
+opt2 = proc do
+  bubble_sort_opt_2 opt_2_mix
 end
 
-puts profile 'opt-0-time: ', &opt-0
-puts profile 'opt-1-time: ', &opt-1
-puts profile 'opt-2-time: ', &opt-2
+puts profile 'opt_0-time: ', &opt0
+puts profile 'opt_1-time: ', &opt1
+puts profile 'opt_2-time: ', &opt2

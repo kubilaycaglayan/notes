@@ -1,25 +1,25 @@
-people = ["Jack", "Jones"]
+people = %w[Jack Jones]
 print "people: #{people}"
 puts
 family = people
-print "family: #{family}" 
+print "family: #{family}"
 puts
 print "family.pop #{family.pop}"
 puts
 print "people: #{people}"
 puts
-print "family: #{family}" 
+print "family: #{family}"
 puts
-puts "-----"
-people = ["Jack", "Jones"]
+puts '-----'
+people = %w[Jack Jones]
 print "people: #{people}"
 puts
 family = people.clone
-print "family: #{family}" 
+print "family: #{family}"
 puts
 print "family.pop #{family.pop}"
 puts
 print "people: #{people}"
 puts
-print "family: #{family}" 
+print "family: #{family}"
 puts

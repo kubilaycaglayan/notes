@@ -15,4 +15,5 @@ end)
 add_three = lambda do |num|
   num + 3
 end
-print (10..50).step(10).to_a.map(&add_three)
+numbers = (10..50).step(10).to_a.map(&add_three)
+print numbers

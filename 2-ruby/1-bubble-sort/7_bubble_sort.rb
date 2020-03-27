@@ -1,7 +1,7 @@
-def create_numbers(m)
+def create_numbers(num)
   numbers = []
-  m.times do
-    numbers << rand(m * 99)
+  num.times do
+    numbers << rand(num * 99)
   end
   numbers.uniq!
   numbers

@@ -1,5 +1,7 @@
 def how_many_flowers(name)
-  flowers = ['dandelion', 'sunflower', 'cactuse', 'oak', 'tulip', 'daffodil', 'rose', 'cherry blossom', 'orchids', 'daisy', 'iris']
+  flowers = ['dandelion', 'sunflower', 'cactuse', 'oak',
+             'tulip', 'daffodil', 'rose', 'cherry blossom',
+             'orchids', 'daisy', 'iris']
   print "Hello #{name}! \nYou have... "
   print yield(8, flowers)
   puts 'Do you want to water them?'

@@ -1,24 +1,24 @@
 puts 3.to_f / 2
 
-(3..11).each do  #includes
-    |x| print x
-    print "\s"
+(3..11).each do |x|
+  print x
+  print "\s"
 end
 puts
 
-(3...11).each do  #includes
-    |x| print x
-    print "\s"
+(3...11).each do |x|
+  print x
+  print "\s"
 end
 puts
 
-Range.new(3,11).each do #another way of ranging
-    |x| print x
-    print "\s"
+Range.new(3, 11).each do |x|
+  print x
+  print "\s"
 end
 puts
 
-puts 1 == 1  #relational operator
+puts 1 == 1 # relational operator
 
 print " typically asks whether the thing on the right is a member or a part or a type of the thing on the left:\n"
 puts (1..3) === 2
