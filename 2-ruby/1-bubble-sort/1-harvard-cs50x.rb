@@ -77,4 +77,3 @@ end
 puts profile 'opt-0-time: ', &opt_0
 puts profile 'opt-1-time: ', &opt_1
 puts profile 'opt-2-time: ', &opt_2
-
