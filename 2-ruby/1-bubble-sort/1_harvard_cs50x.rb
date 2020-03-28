@@ -72,3 +72,6 @@ end
 puts profile 'opt_0-time: ', &opt0
 puts profile 'opt_1-time: ', &opt1
 puts profile 'opt_2-time: ', &opt2
+
+#changes for commit trials
+#changes for commit trials 2
