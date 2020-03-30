@@ -1,5 +1,5 @@
-results = 100.times.collect do |x|
-    rand(6)
-end
+#!/usr/bin/ruby
 
-print results.max
+require './test.rb'
+
+puts ASD

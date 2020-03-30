@@ -1,6 +1,6 @@
 class MySolution
   def initialize
-    print prime_dividors 6_545
+    print prime_dividors 12
 
     puts
     puts "TIME: #{Time.now.strftime('%M:%S')}"

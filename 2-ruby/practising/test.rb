@@ -1,6 +1,7 @@
-is_list = Symbol.all_symbols.select do |item|
-   item.to_s[0..2] == "is_"
+if $0 == __FILE__
+    puts "I'm a command line script now!"
+else
+    puts "Someone else is running me (I feel so violated...)"
 end
 
-#print Symbol.all_symbols
-puts is_list
+ASD = "123"

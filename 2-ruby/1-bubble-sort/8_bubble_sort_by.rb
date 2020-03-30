@@ -1,4 +1,4 @@
-words = %w[hello hi welcome mrb four]
+words = %w[merhaba veranur nasılsın bu cümleyi kelime uzunluklarına göre sıralayalım mı?]
 
 def bubble_sort_by(array)
   print "IN : #{array}\n"
@@ -30,7 +30,7 @@ end
 bubble_sort_by(%w[hi hello hey], &small_string_first)
 bubble_sort_by(%w[o tw thr four fivee].reverse, &small_string_first)
 bubble_sort_by(words, &small_string_first)
-bubble_sort_by((1..8).to_a.reverse, &small_number_first)
+bubble_sort_by((1..15000).to_a.reverse, &small_number_first)
 bubble_sort_by(%w[i w y hello hi hey a x]) do |left, right|
   left.length - right.length
 end
