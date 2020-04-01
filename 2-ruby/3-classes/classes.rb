@@ -1,3 +1,5 @@
+require './modules.rb'
+
 class Musicians
     def initialize(name, instrument)
         @name = name
@@ -12,6 +14,9 @@ class Musicians
 end
 
 class Guitarists < Musicians
+    extend InfoGuitarist
+    extend InfoGuitar
+    include Favourites
     def initialize(name)
         @name = name
         @instrument = "guitar"
@@ -19,13 +24,11 @@ class Guitarists < Musicians
     def special_story
         puts "His/Her favourite guitar is #{favourite_guitar} and favourite pick is #{"also " if favourite_pick == favourite_guitar}#{favourite_pick}."
     end
-    attr_accessor :favourite_pick
-    attr_accessor :favourite_guitar
 end
 
 satriani = Guitarists.new("Joe Satriani")
 satriani.favourite_guitar=("Ibanez")
-satriani.favourite_pick=("Planet Waves")
+satriani.favourite_pick = "Planet Waves"
 satriani.region=("USA")
 satriani.from=("Italy")
 satriani.story
@@ -37,3 +40,8 @@ srv.favourite_pick=("Fender")
 srv.region=("USA")
 srv.from=("Texas")
 srv.story
+puts "--This is coming from module :"
+Guitarists.guitar_info
+Guitarists.guitarist_info
+puts "--And this is the ANCESTORS"
+p Guitarists.ancestors
