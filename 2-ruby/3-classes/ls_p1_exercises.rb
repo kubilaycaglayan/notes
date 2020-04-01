@@ -26,6 +26,9 @@ class MyCar
         self.color = color
         "#{model} repainted really nice! Now it is shining #{@color}!!"
     end
+    def self.gas_mileage(liters, kilometers)
+        puts "#{kilometers / liters} kilometers per liter of fuel."
+    end
 end
 
 mazda = MyCar.new("2008", "Blue", "Mazda RX-8")
@@ -38,3 +41,4 @@ puts mazda.spray_paint("Red")
 puts mazda.color
 puts mazda.speed_up(250)
 puts mazda.brake(50)
+MyCar.gas_mileage(6, 100)
