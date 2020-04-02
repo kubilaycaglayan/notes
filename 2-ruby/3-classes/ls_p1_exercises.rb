@@ -121,6 +121,15 @@ class Student
     def better_grade_then? st2
         grade > st2.grade
     end
+
+    class << self
+        def general_two
+            puts "yyy"
+        end
+        def general
+            puts "asd"
+        end
+    end
     protected
     attr_reader :grade
 end
@@ -130,3 +139,6 @@ bob = Student.new("bob", 9)
 puts joe.name
 
 puts joe.better_grade_then? bob
+
+Student.general
+Student.general_two
