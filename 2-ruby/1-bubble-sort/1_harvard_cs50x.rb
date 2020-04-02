@@ -39,6 +39,16 @@ def bubble_sort_opt_2(array)
   array
 end
 
+def insertion_sort array
+  (array.length - 1).times do |i|
+      while array[i+1] < array[i]
+          array[i], array[i + 1] = array[i + 1], array[i]
+          i -= 1 if i >= 1
+      end
+  end
+  array
+end
+
 def make_array(num)
   sort_this_array = []
   num.times do
@@ -47,16 +57,18 @@ def make_array(num)
   sort_this_array.uniq!
 end
 
-main_array = make_array 1000
+main_array = make_array 10000
 opt_0_mix = main_array.clone
 opt_1_mix = main_array.clone
 opt_2_mix = main_array.clone
+ins_s_mix = main_array.clone
 
 def profile(description, &block)
   start_time = Time.now
   block.call
-  duration = ((Time.now - start_time) * 1).to_s
-  description + duration + ' seconds.'
+  duration = ((Time.now - start_time) * 1)
+  duration = duration.round(2) if duration > 1
+  description + duration.to_s + ' seconds.'
 end
 
 opt0 = proc do
@@ -68,10 +80,14 @@ end
 opt2 = proc do
   bubble_sort_opt_2 opt_2_mix
 end
+ins = proc do
+  insertion_sort ins_s_mix
+end
 
-puts profile 'opt_0-time: ', &opt0
-puts profile 'opt_1-time: ', &opt1
-puts profile 'opt_2-time: ', &opt2
+puts profile 'ins_s-time: ', &ins   #  9 seconds
+puts profile 'opt_2-time: ', &opt2  # 14 seconds
+puts profile 'opt_1-time: ', &opt1  # 16 seconds
+puts profile 'opt_0-time: ', &opt0  # 24 seconds
 
 #changes for commit trials
 #changes for commit trials 2
