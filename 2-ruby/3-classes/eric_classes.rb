@@ -8,7 +8,11 @@ class Viking
   end
   class << self
     def random_name
-      ['Başkan', 'Erol', 'Yavuz Gökbay', 'Erdinç', 'Semih', 'Şimşek', 'Güvenlik', 'Ekşi Sözlük'].sample
+      [
+        'Başkan', 'Erol', 'Yavuz Gökbay', 'Erdinç', 
+        'Semih', 'Şimşek', 'Güvenlik', 'Ekşi Sözlük',
+        'Milliyet Gazetesi', 'İslamcılar', 'Derya'
+      ].sample
     end
 
     def create_warrior(name)
