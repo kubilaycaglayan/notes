@@ -113,3 +113,51 @@ end
 me = Person.new('Kubilay', 'Çağlayan')
 
 puts me
+
+words = %w[you me and myself]
+puts words.first
+
+flowers = {
+  daisy: "red",
+  rose: "pink"
+}
+
+puts flowers
+
+puts flowers.key?(:daisy)
+puts flowers.key?(:d)
+
+puts flowers.fetch(:daisy)
+p flowers.values_at(:daisy, :rose)
+data1, data2 = flowers.values_at(:daisy, :rose)
+puts data1, data2
+
+flowers.transform_values! { |value| value * 2 }
+puts flowers
+
+(1..10).reverse_each { |x| puts x }
+
+puts rand(1.2..1.5).round(2)
+
+puts 3e6.to_i
+
+puts format('%s <%s>', "asd", "bcg")
+
+my_day = <<-DAY
+My day started really fine.
+  I am happy.
+DAY
+
+puts my_day
+
+require 'time'
+
+puts Time.now
+
+text = 'This is a sunny day.'
+
+p text['This']
+
+a = [1, 2, 3].reduce({}) { |h, i| h[i] = i * 17; h }  
+
+puts a 
