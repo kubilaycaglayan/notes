@@ -60,7 +60,7 @@ class Viking
   end
 end
 
-sten = Viking.create_warrior(Viking.random_name)
-sten2 = Viking.create_warrior(Viking.random_name)
+p sten = Viking.create_warrior(Viking.random_name)
+p sten2 = Viking.create_warrior(Viking.random_name)
 
 10.times { sten.attack(sten2) }

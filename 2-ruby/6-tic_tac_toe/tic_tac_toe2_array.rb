@@ -3,7 +3,6 @@
 class Game
   def initialize
     @board = create_board
-    @keys = @board.keys
   end
   def play
     greeting
@@ -15,12 +14,12 @@ class Game
     end
     end_message
   end
+  def to_s
+    "This is a TIC TAC TOE game!"
+  end
   private
   def create_board
-    board = Hash.new
-    9.times do |i|
-      board[(:aaa..:aai).to_a.map(&:to_sym)[i]] = 0
-    end
+    board = Array.new(9, 0)
     board
   end
   def question(turn)9
@@ -41,7 +40,7 @@ class Game
     end
   end
   def check_spot(move, turn)
-    unless @board[@keys[move - 1]] == 0
+    unless @board[move - 1] == 0
       text = "Please make another move. That (#{move}) place is already taken!"
       text.size.times do |i|
         print text[i]
@@ -57,24 +56,24 @@ class Game
   def calculate_board
     sum_of_lines = []
     3.times do |i|
-      sum_line = @board[@keys[i * 3]] + @board[@keys[i * 3 + 1]] + @board[@keys[i * 3 + 2]]
+      sum_line = @board[i * 3] + @board[i * 3 + 1] + @board[i * 3 + 2]
       sum_of_lines << sum_line
-      sum_line = @board[@keys[i]] + @board[@keys[i + 3]] + @board[@keys[i + 6]]
+      sum_line = @board[i] + @board[i + 3] + @board[i + 6]
       sum_of_lines << sum_line
     end
     2.times do |i|
-      sum_diagonal = @board[@keys[i + i]] + @board[@keys[4]] + @board[@keys[8 - i * 2]]
+      sum_diagonal = @board[i + i] + @board[4] + @board[8 - i * 2]
       sum_of_lines << sum_diagonal
     end
     sum_of_lines
   end
   def make_move(move, turn)
     mark = turn.even? ? 1 : 10
-    @board[@keys[move - 1]] = mark
+    @board[move - 1] = mark
   end
   def show_board
-    board = @board.each_value.to_a
-    board.map! do |item|
+    board_show = @board.clone
+    board_show.map! do |item|
       case item
       when 0
         ' . '
@@ -87,16 +86,16 @@ class Game
     puts
     puts "  -------------------"
     3.times do |i|
-      print "  | ", board[i * 3], " | ", board[i * 3 + 1], " | ", board[i * 3 + 2], " |\n  #{"-------------------\n" if i < 2}"  
+      print "  | ", board_show[i * 3], " | ", board_show[i * 3 + 1], " | ", board_show[i * 3 + 2], " |\n  #{"-------------------\n" if i < 2}"  
     end
     puts "-------------------"
   end
   def show_board_hint
-    board = @board.each_value.to_a
-    board.map! do |item|
+    board_hint = @board.clone
+    board_hint.map! do |item|
       case item
       when 0
-        "(#{board.index(item) + 1})"
+        "(#{board_hint.index(item) + 1})"
       when 1
         " X "
       when 10
@@ -106,7 +105,7 @@ class Game
     puts
     puts "  -------------------"
     3.times do |i|
-      print "  | ", board[i * 3], " | ", board[i * 3 + 1], " | ", board[i * 3 + 2], " |\n  #{"-------------------\n" if i < 2}"  
+      print "  | ", board_hint[i * 3], " | ", board_hint[i * 3 + 1], " | ", board_hint[i * 3 + 2], " |\n  #{"-------------------\n" if i < 2}"  
     end
     puts "-------------------"
   end  
@@ -116,7 +115,7 @@ class Game
         return true
       end
     end
-    unless @board.each_value.to_a.include? 0
+    unless @board.include? 0
       return true
     end
   end
@@ -138,4 +137,5 @@ class Game
 end
 
 new_game = Game.new
+puts new_game
 new_game.play

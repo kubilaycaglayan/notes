@@ -31,24 +31,23 @@ class GoodDog
   def to_s
     "This dog is #{name} weighs #{weight} and is #{height} tall."
   end
-  puts self
 end
 
 fido = GoodDog.new('Fido', '15kg', '80cm')
 sparky = GoodDog.new('Sparky', '11kg', '60cm')
 
-fido.speak
-sparky.speak
-sparky.name = 'Spartacus'
-puts sparky.name
+# fido.speak
+# sparky.speak
+# sparky.name = 'Spartacus'
+# puts sparky.name
 puts fido.info
 fido.change_info('Frodo', '5kg', '55cm')
 puts fido.info
-puts GoodDog.how_many_dogs
-puts fido
-p fido
-print fido
-puts
-arr = [1, 2, 3]
+# puts GoodDog.how_many_dogs
+# puts fido
+# p fido
+# print fido
+# puts
+# arr = [1, 2, 3]
 
-puts "selam #{fido}"
+# puts "selam #{fido}"
