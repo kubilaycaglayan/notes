@@ -85,6 +85,11 @@ class Game
   end
 
   private
+  
+  def greeting
+    show_board_hint(@board)
+    puts "Welcome to #{@name} game..."
+  end
 
   def create_board
     Array.new(9, 0)
@@ -92,16 +97,16 @@ class Game
 end
 
 class TicTacToe < Game
+  def initialize
+    super
+    @name = 'Tic Tac Toe'
+  end
+  
   def to_s
     'This is a TIC TAC TOE game!'
   end
 
   private
-
-  def greeting
-    show_board_hint(@board)
-    puts 'Welcome to TIC TAC TOE game...'
-  end
 
   def check_spot(move, turn)
     if @board[move - 1].zero?
@@ -166,4 +171,5 @@ class TicTacToe < Game
 end
 
 new_game = TicTacToe.new
-new_game.auto_play([1,3,2,4,6,5,8,9,7])
+#new_game.auto_play([1,3,2,4,6,5,8,9,7])
+new_game.play
