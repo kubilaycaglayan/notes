@@ -85,7 +85,7 @@ class Game
   end
 
   private
-  
+
   def greeting
     show_board_hint(@board)
     puts "Welcome to #{@name} game..."
@@ -101,7 +101,7 @@ class TicTacToe < Game
     super
     @name = 'Tic Tac Toe'
   end
-  
+
   def to_s
     'This is a TIC TAC TOE game!'
   end
@@ -171,5 +171,5 @@ class TicTacToe < Game
 end
 
 new_game = TicTacToe.new
-#new_game.auto_play([1,3,2,4,6,5,8,9,7])
+# new_game.auto_play([1,3,2,4,6,5,8,9,7])
 new_game.play

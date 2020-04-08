@@ -1,1 +1,3 @@
-puts [1,5,8].include?(1)
+#!/usr/bin/env ruby
+
+puts "Hello World!"
