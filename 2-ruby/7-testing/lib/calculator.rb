@@ -1,20 +1,14 @@
 class Calculator
   def add(*numbers)
-    numbers.inject(0) do |sum, item|
-      sum + item.to_i
-    end
+    numbers.reduce(:+)
   end
 
   def substract(*numbers)
-    numbers.reduce(numbers[0] * 2) do |result, item|
-      result - item
-    end
+    numbers.reduce(:-)
   end
 
   def multiply(*numbers)
-    numbers.reduce(1) do |product, item|
-      product * item
-    end
+    numbers.reduce(:*)
   end
 
   def divide(*numbers)
@@ -24,3 +18,4 @@ class Calculator
     end
   end
 end
+puts "Hello World!"
