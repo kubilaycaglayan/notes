@@ -5,4 +5,4 @@ def create_index_hash
   end
   occurance
 end
-p create_index_hash
+puts create_index_hash
