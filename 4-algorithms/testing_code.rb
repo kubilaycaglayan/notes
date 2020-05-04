@@ -1,9 +1,9 @@
-strings = ['aaab', 'baa', 'aaa', 'acaaaa']
-results = [3,0,-1,1]
+input = []
+output = []
 
-strings.each_with_index do |string, index| 
-  print "#{index}. case : "
-  print palindromeIndex(string)
-  print " FALSE (#{results [index]})" unless palindromeIndex(string) == results [index]
+input.each_with_index do |string, index| 
+  print "#{index + 1}. case : "
+  print function(string)
+  print " FALSE (#{output [index]})" unless function(string) == output [index]
   print "\n"
 end
