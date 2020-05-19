@@ -1,3 +1,3 @@
-string = "abcde"
-p string[2] = ""
+string = 'abcde'
+p string[2] = ''
 p string

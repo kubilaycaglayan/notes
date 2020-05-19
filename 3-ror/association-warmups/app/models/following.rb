@@ -1,0 +1,4 @@
+class Following < ApplicationRecord
+
+
+end

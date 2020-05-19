@@ -3,12 +3,13 @@ def palindrome?(string)
 end
 
 def delete_char(string, n)
-  string[n] = ""
+  string[n] = ''
   string
 end
 
 def palindromeIndex(s)
   return -1 if palindrome?(s)
+
   index = 0
   left = false
   right = false
@@ -19,16 +20,17 @@ def palindromeIndex(s)
     temporary_string = s.clone
     temporary_string = delete_char(temporary_string, round)
     break if palindrome?(temporary_string)
+
     left = false
     rigth = true
     temporary_string = s.clone
     temporary_string = delete_char(temporary_string, s.size - round)
     break if palindrome?(temporary_string)
   end
-  p "--"
+  p '--'
   p right
   p left
-  p "--"
+  p '--'
   case index
   when (s.size / 2) && !palindrome?(s)
     -1
@@ -38,8 +40,8 @@ def palindromeIndex(s)
   end
 end
 
-strings = ['aaab', 'baa', 'aaa', 'acaaaa']
+strings = %w[aaab baa aaa acaaaa]
 
-strings.each do |string| 
+strings.each do |string|
   p palindromeIndex(string)
 end

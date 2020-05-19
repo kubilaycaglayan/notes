@@ -4,8 +4,8 @@ def repeatedString(string, repetition)
     units << string[index].downcase
   end
   count_in_unit = units.count('a')
-  count_in_unit * (repetition / (string.size)) + 
-  units[0...(repetition % (string.size))].count('a')
+  count_in_unit * (repetition / string.size) +
+    units[0...(repetition % string.size)].count('a')
 end
 
 string = 'aaaaaaaaa'
