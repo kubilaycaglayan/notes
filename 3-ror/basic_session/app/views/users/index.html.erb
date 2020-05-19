@@ -1,0 +1,43 @@
+<h1>Hello!</h1>
+
+<ol>
+<% @users.each do |user| %>
+<li> 
+<%= user.name %> 
+
+</li>
+<% end %>
+</ol>
+
+<table>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+<tr>
+<td><h4>Current User Name:</h4></td>
+<td> <%= @users.find(session[:current_user_id]).name unless session[:current_user_id].nil? %> </td>
+<td></td>
+</tr>
+<tr>
+<td><h4>Current User Id:</h4></td>
+<td><%= session[:current_user_id] %></td>
+<td></td>
+</tr>
+<tr>
+<td><h4>Session Id:</h4></td>
+<td><%= session[:session_id] %></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+
+
+
