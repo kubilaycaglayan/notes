@@ -1,0 +1,8 @@
+add_at(index, value)
+add_at(2,3)
+0,1,2,3
+1,2,4,5
+
+1-) Create a new node
+2-) update the index node
+3-) update the attribution(next_node) of the new node
