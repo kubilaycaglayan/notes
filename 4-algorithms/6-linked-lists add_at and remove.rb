@@ -57,6 +57,7 @@ class LinkedList
 
   def remove(index)
     remove_node = get_node(index)
+    value = remove_node.value
     if remove_node == @head
       next_item = get_node(index + 1)
       @head = next_item
@@ -73,11 +74,21 @@ class LinkedList
       nilling_index(remove_node)
     end
     @size -= 1
+    value
   end
 
   def nilling_index(node)
     node.value = nil
     node.next_node = nil
+  end
+
+  def show
+    my_list = []
+    ObjectSpace.each_object(Node) do |object|
+      p object
+      my_list << object.value if object.value != nil
+    end
+    p my_list
   end
 
   private 
