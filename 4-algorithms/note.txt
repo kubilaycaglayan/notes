@@ -1,3 +1,11 @@
+add(value)
+add(3)
+1,2
+
+1-) create a new node
+2-) upgrade the tail node
+
+
 add_at(index, value)
 add_at(2,3)
 0,1,2,3
@@ -6,3 +14,9 @@ add_at(2,3)
 1-) Create a new node
 2-) update the index node
 3-) update the attribution(next_node) of the new node
+
+remove(index)
+
+1-) find the index node
+2-) update the index - 1  
+
