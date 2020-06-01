@@ -1,11 +1,4 @@
-class Node
-  attr_accessor :value, :next_node
-
-  def initialize(value, next_node=nil)
-    @value = value
-    @next_node = next_node
-  end
-end
+require './node.rb'
 
 class LinkedList
   attr_accessor :head, :tail, :size
@@ -91,6 +84,19 @@ class LinkedList
     p my_list
   end
 
+  def to_a
+    node = @head
+    result = []
+    index = @size - 1
+    while index > 0 && node
+      result << node.value
+      node = node.next_node
+      index -= 1
+    end
+    result << node.value
+    result
+  end
+
   private 
 
   def get_node(index)
@@ -104,29 +110,3 @@ class LinkedList
     node
   end
 end
-
-# list = LinkedList.new
-# 
-# list.add(0)
-# list.add(1)
-# list.add(2)
-# list.add_at(3,3)
-# list.add_at(3,3)
-# list.remove(3)
-# list.add(4)
-# list.add(5)
-# list.add(6)
-# list.add(7)
-# list.add(8)
-# list.remove(7)
-# 
-# puts "__HEAD:__ #{list.head.inspect}"
-# puts "__TAIL:__ #{list.tail.inspect}"
-# 
-# my_list = []
-# ObjectSpace.each_object(Node) do |object|
-#   p object
-#   my_list << object.value if object.value != nil
-# end
-# p my_list
-# p list.size
