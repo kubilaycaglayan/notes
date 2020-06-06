@@ -1,6 +1,6 @@
 require './6-linked_lists.rb'
 
-class Stack < LinkedList
+class Stack
   def initialize
     @stack = LinkedList.new
   end
@@ -14,5 +14,13 @@ class Stack < LinkedList
     popped_value = @stack.get(@stack.size - 1)
     @stack.remove(@stack.size - 1)
     popped_value
+  end
+
+  def to_a
+    @stack.to_a
+  end
+
+  def empty?
+    @stack.empty?
   end
 end

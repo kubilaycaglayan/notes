@@ -1,1 +1,1 @@
-p [1,8,3,4,5,6,7].each_cons(10).map(&:max)
+p nil.to_a
