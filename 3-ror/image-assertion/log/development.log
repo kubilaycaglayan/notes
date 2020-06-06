@@ -1575,3 +1575,1283 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.7ms | Allocations: 5808)
 
 
+Started GET "/" for ::1 at 2020-06-05 22:43:33 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/kubilay/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/kubilay/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.5ms | Allocations: 310)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 1880)
+
+
+Started GET "/users/new" for ::1 at 2020-06-05 22:43:38 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.6ms | Allocations: 2688)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 3113)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 9.3ms | ActiveRecord: 1.4ms | Allocations: 21922)
+
+
+Started POST "/users" for ::1 at 2020-06-05 22:44:08 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"GlAqgKTMvLzmnKQauOn8P8mINIAqVdJs89YrSooxUVIeIna++p7Q5fOWHaIFYXy/lgPmUQOSghS5dFkg66d1Gw==", "user"=>{"name"=>"Papatya", "photos_attributes"=>{"0"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000055806e181a98 @tempfile=#<Tempfile:/tmp/RackMultipart20200605-11008-180f68y.png>, @original_filename="Screenshot from 2020-05-28 09-01-39.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[photos_attributes][0][image]\"; filename=\"Screenshot from 2020-05-28 09-01-39.png\"\r\nContent-Type: image/png\r\n">}}}, "commit"=>"Create User"}
+[paperclip] Trying to link /tmp/RackMultipart20200605-11008-180f68y.png to /tmp/037e7ca4e0eff3be594de2b0db9da9c120200605-11008-1swtksz.png
+[paperclip] Trying to link /tmp/037e7ca4e0eff3be594de2b0db9da9c120200605-11008-1swtksz.png to /tmp/b53b63273f7a7203d05b12c4d308bfa620200605-11008-rf0zob.png
+Command :: file -b --mime '/tmp/b53b63273f7a7203d05b12c4d308bfa620200605-11008-rf0zob.png'
+[paperclip] Trying to link /tmp/037e7ca4e0eff3be594de2b0db9da9c120200605-11008-1swtksz.png to /tmp/b53b63273f7a7203d05b12c4d308bfa620200605-11008-1j1k4wz.png
+Command :: file -b --mime '/tmp/b53b63273f7a7203d05b12c4d308bfa620200605-11008-1j1k4wz.png'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Papatya"], ["created_at", "2020-06-05 19:44:08.673967"], ["updated_at", "2020-06-05 19:44:08.673967"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mPhoto Create (0.2ms)[0m  [1m[32mINSERT INTO "photos" ("user_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["image_file_name", "Screenshot_from_2020-05-28_09-01-39.png"], ["image_content_type", "image/png"], ["image_file_size", 1160834], ["image_updated_at", "2020-06-05 19:44:08.660221"], ["created_at", "2020-06-05 19:44:08.676794"], ["updated_at", "2020-06-05 19:44:08.676794"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 3], ["created_at", "2020-06-05 19:44:08.681346"], ["updated_at", "2020-06-05 19:44:08.681346"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 31ms (ActiveRecord: 5.6ms | Allocations: 16926)
+
+
+Started GET "/users/3" for ::1 at 2020-06-05 22:44:08 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1378)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 5876)
+
+
+Started GET "/" for ::1 at 2020-06-06 13:45:08 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/kubilay/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/kubilay/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.1ms | Allocations: 294)
+Completed 200 OK in 14ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 1789)
+
+
+Started GET "/" for ::1 at 2020-06-06 13:46:00 +0300
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3944)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 0.4ms | Allocations: 11542)
+
+
+Started GET "/users/3" for ::1 at 2020-06-06 13:46:10 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 22.7ms | Allocations: 9864)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 27.5ms | ActiveRecord: 0.7ms | Allocations: 14251)
+
+
+Started GET "/" for ::1 at 2020-06-06 13:54:07 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1255)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 5585)
+
+
+Started GET "/users/3" for ::1 at 2020-06-06 13:54:08 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1277)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.4ms | ActiveRecord: 1.2ms | Allocations: 5380)
+
+
+Started GET "/users/3/edit" for ::1 at 2020-06-06 13:54:10 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 11]]
+  ↳ app/views/users/edit.html.erb:3
+  Rendered users/_form.html.erb (Duration: 30.2ms | Allocations: 8623)
+  Rendered users/edit.html.erb within layouts/application (Duration: 32.4ms | Allocations: 8950)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.5ms | Allocations: 10104)
+
+
+  
+ActionView::Template::Error (undefined method `image' for #<Photo::ActiveRecord_Associations_CollectionProxy:0x0000559b5c425480>):
+    17:   </div>
+    18: 
+    19:   <p>
+    20:     <% if user.photos.image.exists? %>
+    21:     <%= image_tag @user.photos.first.image.url %>
+    22:     <%= %>
+    23:     <% end %>
+  
+app/views/users/_form.html.erb:20
+app/views/users/_form.html.erb:1
+app/views/users/edit.html.erb:3
+Started GET "/" for ::1 at 2020-06-06 13:54:21 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1026)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.1ms | Allocations: 4501)
+
+
+Started GET "/users/new" for ::1 at 2020-06-06 13:54:22 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 9.3ms | Allocations: 3144)
+  Rendered users/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 3317)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 4288)
+
+
+  
+ActionView::Template::Error (undefined method `image' for #<Photo::ActiveRecord_Associations_CollectionProxy:0x0000559b5b6ce408>):
+    17:   </div>
+    18: 
+    19:   <p>
+    20:     <% if user.photos.image.exists? %>
+    21:     <%= image_tag @user.photos.first.image.url %>
+    22:     <%= %>
+    23:     <% end %>
+  
+app/views/users/_form.html.erb:20
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2020-06-06 13:55:05 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 14.3ms | Allocations: 3632)
+  Rendered users/new.html.erb within layouts/application (Duration: 15.0ms | Allocations: 3958)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 0.0ms | Allocations: 8404)
+
+
+Started GET "/users" for ::1 at 2020-06-06 13:55:07 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.9ms | Allocations: 4801)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-06-06 13:55:08 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:20
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:21
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/_form.html.erb:25
+  Rendered users/_form.html.erb (Duration: 17.2ms | Allocations: 3920)
+  Rendered users/edit.html.erb within layouts/application (Duration: 18.4ms | Allocations: 4157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 23.2ms | ActiveRecord: 0.8ms | Allocations: 8236)
+
+
+Started GET "/users" for ::1 at 2020-06-06 13:55:29 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1012)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.6ms | Allocations: 4432)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-06-06 13:55:31 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:20
+  [1m[36mCACHE Photo Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:21
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/_form.html.erb:25
+  Rendered users/_form.html.erb (Duration: 18.8ms | Allocations: 3602)
+  Rendered users/edit.html.erb within layouts/application (Duration: 19.1ms | Allocations: 3714)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 22.2ms | ActiveRecord: 0.6ms | Allocations: 7656)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-06 13:55:43 +0300
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"NMvYLjib2eB9Hfm8Q1RzPRpoVdmyLLMdO+CryKtQhWisPGFhmp71dMSwp/ZzkILiTxM5iEoNHbjaiREUz5+aXQ==", "user"=>{"name"=>"Tayo", "photos_attributes"=>{"0"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007ff058a325a0 @tempfile=#<Tempfile:/tmp/RackMultipart20200606-8845-updogi.jpg>, @original_filename="musicians-guitars_friends.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[photos_attributes][0][image]\"; filename=\"musicians-guitars_friends.jpg\"\r\nContent-Type: image/jpeg\r\n">, "id"=>"1"}, "1"=>{"id"=>"2"}}}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? AND "photos"."id" IN (?, ?)[0m  [["user_id", 1], ["id", 1], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+[paperclip] Trying to link /tmp/RackMultipart20200606-8845-updogi.jpg to /tmp/eb5a4dff265c5016a69c3f6603eafe5920200606-8845-129h79c.jpg
+[paperclip] Trying to link /tmp/eb5a4dff265c5016a69c3f6603eafe5920200606-8845-129h79c.jpg to /tmp/eb5a4dff265c5016a69c3f6603eafe5920200606-8845-1fpynau.jpg
+Command :: file -b --mime '/tmp/eb5a4dff265c5016a69c3f6603eafe5920200606-8845-1fpynau.jpg'
+[paperclip] Trying to link /tmp/eb5a4dff265c5016a69c3f6603eafe5920200606-8845-129h79c.jpg to /tmp/eb5a4dff265c5016a69c3f6603eafe5920200606-8845-1ot9sv7.jpg
+Command :: file -b --mime '/tmp/eb5a4dff265c5016a69c3f6603eafe5920200606-8845-1ot9sv7.jpg'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Tayo"], ["updated_at", "2020-06-06 10:55:43.185348"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[36mPhoto Update (0.1ms)[0m  [1m[33mUPDATE "photos" SET "image_file_name" = ?, "image_content_type" = ?, "image_file_size" = ?, "image_updated_at" = ?, "updated_at" = ? WHERE "photos"."id" = ?[0m  [["image_file_name", "musicians-guitars_friends.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 31107], ["image_updated_at", "2020-06-06 10:55:43.174644"], ["updated_at", "2020-06-06 10:55:43.187711"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+[paperclip] deleting /home/kubilay/Documents/Personal-Projects/3-ror/image-assertion/public/system/photos/images/000/000/001/original/tayo.png
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 35ms (ActiveRecord: 5.2ms | Allocations: 18350)
+
+
+Started GET "/users/1" for ::1 at 2020-06-06 13:55:43 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1253)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 5.5ms | ActiveRecord: 0.8ms | Allocations: 5354)
+
+
+Started GET "/users" for ::1 at 2020-06-06 13:55:45 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1004)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 0.4ms | Allocations: 4420)
+
+
+Started GET "/users/1" for ::1 at 2020-06-06 13:55:46 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1089)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 1.0ms | Allocations: 5023)
+
+
+Started GET "/users" for ::1 at 2020-06-06 13:55:48 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.3ms | Allocations: 4406)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-06-06 13:55:49 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:20
+  [1m[36mCACHE Photo Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:21
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/_form.html.erb:25
+  Rendered users/_form.html.erb (Duration: 12.7ms | Allocations: 3601)
+  Rendered users/edit.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3713)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.6ms | Allocations: 7645)
+
+
+Started GET "/users" for ::1 at 2020-06-06 14:05:58 +0300
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 3195)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 7604)
+
+
+Started GET "/users/new" for ::1 at 2020-06-06 14:05:59 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.8ms | Allocations: 725)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 807)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 9947)
+
+
+Started POST "/users" for ::1 at 2020-06-06 14:06:18 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"hhzuFamwmfjC21cTdNaTT0p+KyA66bmf/8gYa0r9/Z/3Mp2EGb3e9KYspBWPiRbnUZpbYHYvxuPmkIbqs78ozw==", "user"=>{"name"=>"Kubillll", "photos_attributes"=>{"0"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007ff05901f328 @tempfile=#<Tempfile:/tmp/RackMultipart20200606-8845-1tpkev7.jpg>, @original_filename="gary-bendig-6GMq7AGxNbE-unsplash (1).jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[photos_attributes][0][image]\"; filename=\"gary-bendig-6GMq7AGxNbE-unsplash (1).jpg\"\r\nContent-Type: image/jpeg\r\n">}}}, "commit"=>"Create User"}
+[paperclip] Trying to link /tmp/RackMultipart20200606-8845-1tpkev7.jpg to /tmp/daf5106532368105af021f658052b25620200606-8845-1vy3jmf.jpg
+[paperclip] Trying to link /tmp/daf5106532368105af021f658052b25620200606-8845-1vy3jmf.jpg to /tmp/5d736c83a555dfd34beabbd85cabdce020200606-8845-36q4ik.jpg
+Command :: file -b --mime '/tmp/5d736c83a555dfd34beabbd85cabdce020200606-8845-36q4ik.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/daf5106532368105af021f658052b25620200606-8845-1vy3jmf.jpg[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::NotIdentifiedByImageMagickError: Paperclip::Errors::NotIdentifiedByImageMagickError>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/daf5106532368105af021f658052b25620200606-8845-1vy3jmf.jpg[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::NotIdentifiedByImageMagickError: Paperclip::Errors::NotIdentifiedByImageMagickError>
+[paperclip] Trying to link /tmp/daf5106532368105af021f658052b25620200606-8845-1vy3jmf.jpg to /tmp/5d736c83a555dfd34beabbd85cabdce020200606-8845-1eqpxzw.jpg
+Command :: file -b --mime '/tmp/5d736c83a555dfd34beabbd85cabdce020200606-8845-1eqpxzw.jpg'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.5ms | Allocations: 1222)
+  Rendered users/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1304)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 9585)
+
+
+Started GET "/users" for ::1 at 2020-06-06 14:07:12 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1003)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 0.2ms | Allocations: 4427)
+
+
+Started GET "/users/new" for ::1 at 2020-06-06 14:07:13 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.7ms | Allocations: 720)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 802)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 4431)
+
+
+Started POST "/users" for ::1 at 2020-06-06 14:07:20 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"TF/1+1GC5LvH74N6Tk6rpuzdZZ127WpkWfAJIlsXUKo9cYZq4Y+jt6MYcHy1ES4O9zkV3TorFRhAqJejolWF+g==", "user"=>{"name"=>"Frodo", "photos_attributes"=>{"0"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007ff058e0a3d0 @tempfile=#<Tempfile:/tmp/RackMultipart20200606-8845-o40tou.png>, @original_filename="tayo.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[photos_attributes][0][image]\"; filename=\"tayo.png\"\r\nContent-Type: image/png\r\n">}}}, "commit"=>"Create User"}
+[paperclip] Trying to link /tmp/RackMultipart20200606-8845-o40tou.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-w209ah.png
+[paperclip] Trying to link /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-w209ah.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-157uuki.png
+Command :: file -b --mime '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-157uuki.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-w209ah.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::NotIdentifiedByImageMagickError: Paperclip::Errors::NotIdentifiedByImageMagickError>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-w209ah.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::NotIdentifiedByImageMagickError: Paperclip::Errors::NotIdentifiedByImageMagickError>
+[paperclip] Trying to link /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-w209ah.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1tkcgxs.png
+Command :: file -b --mime '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1tkcgxs.png'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 4.7ms | Allocations: 1172)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 9329)
+
+
+Started GET "/users" for ::1 at 2020-06-06 14:10:08 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 21.8ms | ActiveRecord: 0.2ms | Allocations: 5559)
+
+
+Started GET "/users/3" for ::1 at 2020-06-06 14:10:10 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1311)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 14.2ms | ActiveRecord: 1.2ms | Allocations: 5522)
+
+
+Started GET "/system/photos/images/000/000/005/medium/Screenshot_from_2020-05-28_09-01-39.png?1591386248" for ::1 at 2020-06-06 14:10:10 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/photos/images/000/000/005/medium/Screenshot_from_2020-05-28_09-01-39.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-06-06 14:10:12 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/system/photos/images/000/000/005/medium/Screenshot_from_2020-05-28_09-01-39.png?1591386248" for ::1 at 2020-06-06 14:10:12 +0300
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1649)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/system/photos/images/000/000/005/medium/Screenshot_from_2020-05-28_09-01-39.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 46.8ms | ActiveRecord: 0.3ms | Allocations: 35005)
+
+
+Started GET "/users/new" for ::1 at 2020-06-06 14:10:13 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 6.6ms | Allocations: 1131)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1456)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 5215)
+
+
+Started POST "/users" for ::1 at 2020-06-06 14:10:18 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Z2JJ+RVI7obPILXRA9b/NJbF5XXmjFRBSiSTNViZuhIWTDpopUWpiqvXRtf4iXqcjSGVNapKKz1TfA20odtvQg==", "user"=>{"name"=>"Papatya", "photos_attributes"=>{"0"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007ff058daca50 @tempfile=#<Tempfile:/tmp/RackMultipart20200606-8845-1pkydc7.png>, @original_filename="tayo.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[photos_attributes][0][image]\"; filename=\"tayo.png\"\r\nContent-Type: image/png\r\n">}}}, "commit"=>"Create User"}
+[paperclip] Trying to link /tmp/RackMultipart20200606-8845-1pkydc7.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1lf7gh0.png
+[paperclip] Trying to link /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1lf7gh0.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1xom3eh.png
+Command :: file -b --mime '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1xom3eh.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1lf7gh0.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::NotIdentifiedByImageMagickError: Paperclip::Errors::NotIdentifiedByImageMagickError>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1lf7gh0.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::NotIdentifiedByImageMagickError: Paperclip::Errors::NotIdentifiedByImageMagickError>
+[paperclip] Trying to link /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1lf7gh0.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-7xkj2n.png
+Command :: file -b --mime '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-7xkj2n.png'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.4ms | Allocations: 1172)
+  Rendered users/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 9328)
+
+
+Started POST "/users" for ::1 at 2020-06-06 14:11:31 +0300
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"77d+JubkH/daCXfRdUOiXpIReLyOT1K3nxYiM6Y/Bg7rxSIYuLZzrk8DzmnIyyLezZqqbaeIAs/VtFBZx6kiRw==", "user"=>{"name"=>"Papatya", "photos_attributes"=>{"0"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007ff05892f130 @tempfile=#<Tempfile:/tmp/RackMultipart20200606-8845-1hv0sk8.png>, @original_filename="tayo.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[photos_attributes][0][image]\"; filename=\"tayo.png\"\r\nContent-Type: image/png\r\n">}}}, "commit"=>"Create User"}
+[paperclip] Trying to link /tmp/RackMultipart20200606-8845-1hv0sk8.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-nb587y.png
+[paperclip] Trying to link /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-nb587y.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1r04bjh.png
+Command :: file -b --mime '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1r04bjh.png'
+[paperclip] Trying to link /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-nb587y.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1mvwx7j.png
+Command :: file -b --mime '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1mvwx7j.png'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Papatya"], ["created_at", "2020-06-06 11:11:32.051519"], ["updated_at", "2020-06-06 11:11:32.051519"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mPhoto Create (0.1ms)[0m  [1m[32mINSERT INTO "photos" ("user_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["image_file_name", "tayo.png"], ["image_content_type", "image/png"], ["image_file_size", 35330], ["image_updated_at", "2020-06-06 11:11:32.043979"], ["created_at", "2020-06-06 11:11:32.053681"], ["updated_at", "2020-06-06 11:11:32.053681"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mPhoto Create (0.1ms)[0m  [1m[32mINSERT INTO "photos" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 4], ["created_at", "2020-06-06 11:11:32.057114"], ["updated_at", "2020-06-06 11:11:32.057114"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 43ms (ActiveRecord: 6.4ms | Allocations: 24811)
+
+
+Started GET "/users/4" for ::1 at 2020-06-06 14:11:32 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.3ms | Allocations: 5402)
+
+
+Started GET "/system/photos/images/000/000/007/medium/tayo.png?1591441892" for ::1 at 2020-06-06 14:11:32 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/photos/images/000/000/007/medium/tayo.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-06-06 14:11:33 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1140)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.3ms | Allocations: 4567)
+
+
+Started GET "/system/photos/images/000/000/007/medium/tayo.png?1591441892" for ::1 at 2020-06-06 14:11:33 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/photos/images/000/000/007/medium/tayo.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2020-06-06 14:11:34 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.1ms | Allocations: 722)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 804)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 4440)
+
+
+Started POST "/users" for ::1 at 2020-06-06 14:11:39 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"TiRHLhk9xmWx/suW5K7JwPVj1TDDUNFpfoC8+9zSLC8/CjS/qTCBadUJOJAf8Uxo7oelcI+WrhVn2CJ6JZD5fw==", "user"=>{"name"=>"Simferopolski", "photos_attributes"=>{"0"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x0000559b5ca1f2c8 @tempfile=#<Tempfile:/tmp/RackMultipart20200606-8845-6kmyez.png>, @original_filename="Screenshot from 2020-06-05 13-26-31.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[photos_attributes][0][image]\"; filename=\"Screenshot from 2020-06-05 13-26-31.png\"\r\nContent-Type: image/png\r\n">}}}, "commit"=>"Create User"}
+[paperclip] Trying to link /tmp/RackMultipart20200606-8845-6kmyez.png to /tmp/0f737f33433b825dd6a008135f840cea20200606-8845-146c03w.png
+[paperclip] Trying to link /tmp/0f737f33433b825dd6a008135f840cea20200606-8845-146c03w.png to /tmp/a074192bd608be1fef099767ead7430520200606-8845-10y33oq.png
+Command :: file -b --mime '/tmp/a074192bd608be1fef099767ead7430520200606-8845-10y33oq.png'
+[paperclip] Trying to link /tmp/0f737f33433b825dd6a008135f840cea20200606-8845-146c03w.png to /tmp/a074192bd608be1fef099767ead7430520200606-8845-1ld692i.png
+Command :: file -b --mime '/tmp/a074192bd608be1fef099767ead7430520200606-8845-1ld692i.png'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Simferopolski"], ["created_at", "2020-06-06 11:11:39.115643"], ["updated_at", "2020-06-06 11:11:39.115643"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mPhoto Create (0.1ms)[0m  [1m[32mINSERT INTO "photos" ("user_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["image_file_name", "Screenshot_from_2020-06-05_13-26-31.png"], ["image_content_type", "image/png"], ["image_file_size", 258147], ["image_updated_at", "2020-06-06 11:11:39.099655"], ["created_at", "2020-06-06 11:11:39.119329"], ["updated_at", "2020-06-06 11:11:39.119329"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[36mPhoto Create (0.8ms)[0m  [1m[32mINSERT INTO "photos" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 5], ["created_at", "2020-06-06 11:11:39.123213"], ["updated_at", "2020-06-06 11:11:39.123213"]]
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 40ms (ActiveRecord: 6.3ms | Allocations: 15350)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:11:39 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1091)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 5042)
+
+
+Started GET "/system/photos/images/000/000/009/medium/Screenshot_from_2020-06-05_13-26-31.png?1591441899" for ::1 at 2020-06-06 14:11:39 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/photos/images/000/000/009/medium/Screenshot_from_2020-06-05_13-26-31.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/5" for ::1 at 2020-06-06 14:11:47 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1247)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.3ms | Allocations: 6102)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:15:13 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 34.6ms | ActiveRecord: 0.7ms | Allocations: 11602)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:15:38 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1096)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 32.4ms | ActiveRecord: 0.6ms | Allocations: 10056)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:16:09 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1089)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 33.4ms | ActiveRecord: 0.4ms | Allocations: 10048)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:16:24 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1089)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.3ms | Allocations: 10933)
+
+
+Started GET "/users/5/edit" for ::1 at 2020-06-06 14:16:53 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:20
+  [1m[36mCACHE Photo Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:21
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/users/_form.html.erb:25
+  Rendered users/_form.html.erb (Duration: 15.8ms | Allocations: 4195)
+  Rendered users/edit.html.erb within layouts/application (Duration: 17.8ms | Allocations: 4567)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 21.1ms | ActiveRecord: 1.1ms | Allocations: 8692)
+
+
+Started GET "/users/5/edit" for ::1 at 2020-06-06 14:16:59 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:20
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:21
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/users/_form.html.erb:25
+  Rendered users/_form.html.erb (Duration: 12.9ms | Allocations: 3599)
+  Rendered users/edit.html.erb within layouts/application (Duration: 13.3ms | Allocations: 3711)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 35.4ms | ActiveRecord: 0.9ms | Allocations: 13503)
+
+
+Started PATCH "/users/5" for ::1 at 2020-06-06 14:17:06 +0300
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"BhDbwoLzCcrEkAfF2b05isija+EPBnCv8tvWpcVEflICYof83KFlk9Gavn1kNbkKlyi5MCbBINe4eaTPpNJaGw==", "user"=>{"name"=>"Simferopolski", "photos_attributes"=>{"0"=>{"id"=>"9"}, "1"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007ff05921b730 @tempfile=#<Tempfile:/tmp/RackMultipart20200606-8845-sxez9j.png>, @original_filename="tayo.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[photos_attributes][1][image]\"; filename=\"tayo.png\"\r\nContent-Type: image/png\r\n">, "id"=>"10"}}}, "commit"=>"Update User", "id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? AND "photos"."id" IN (?, ?)[0m  [["user_id", 5], ["id", 9], ["id", 10]]
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+[paperclip] Trying to link /tmp/RackMultipart20200606-8845-sxez9j.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-j21nc2.png
+[paperclip] Trying to link /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-j21nc2.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1cm7nd6.png
+Command :: file -b --mime '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1cm7nd6.png'
+[paperclip] Trying to link /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-j21nc2.png to /tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1hph87.png
+Command :: file -b --mime '/tmp/dc4319011a22f69e8cd33c5e189e5b7c20200606-8845-1hph87.png'
+  [1m[36mPhoto Update (0.4ms)[0m  [1m[33mUPDATE "photos" SET "image_file_name" = ?, "image_content_type" = ?, "image_file_size" = ?, "image_updated_at" = ?, "updated_at" = ? WHERE "photos"."id" = ?[0m  [["image_file_name", "tayo.png"], ["image_content_type", "image/png"], ["image_file_size", 35330], ["image_updated_at", "2020-06-06 11:17:06.736212"], ["updated_at", "2020-06-06 11:17:06.745915"], ["id", 10]]
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 37ms (ActiveRecord: 8.6ms | Allocations: 15026)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:17:06 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1093)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.1ms | Allocations: 5069)
+
+
+Started GET "/users" for ::1 at 2020-06-06 14:17:08 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1483)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.3ms | Allocations: 5039)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:17:10 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1090)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 21.1ms | ActiveRecord: 0.6ms | Allocations: 5050)
+
+
+Started GET "/users" for ::1 at 2020-06-06 14:17:12 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1246)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 0.7ms | Allocations: 4686)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:17:14 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1089)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 22.9ms | ActiveRecord: 0.7ms | Allocations: 5036)
+
+
+Started GET "/users/5/edit" for ::1 at 2020-06-06 14:17:16 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:20
+  [1m[36mCACHE Photo Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:21
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/users/_form.html.erb:25
+  Rendered users/_form.html.erb (Duration: 16.0ms | Allocations: 3604)
+  Rendered users/edit.html.erb within layouts/application (Duration: 18.1ms | Allocations: 3716)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 0.6ms | Allocations: 7669)
+
+
+Started GET "/users" for ::1 at 2020-06-06 14:18:13 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1480)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.2ms | Allocations: 5815)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:18:14 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 12.6ms | Allocations: 4029)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.3ms | Allocations: 5172)
+
+
+  
+ActionView::Template::Error (undefined method `url' for #<Photo:0x00007ff0589dee28>):
+     7: 
+     8: <div class="show-image">
+     9:   <%=  @user.photos.each do |image|%>
+    10:     <%= image_tag image.url %>
+    11:     <% end %>
+    12: </div>
+    13: 
+  
+app/views/users/show.html.erb:10
+app/views/users/show.html.erb:9
+Started GET "/users/5" for ::1 at 2020-06-06 14:19:00 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 11.5ms | Allocations: 1508)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 30.3ms | ActiveRecord: 0.8ms | Allocations: 6369)
+
+
+Started GET "/users/5" for ::1 at 2020-06-06 14:19:23 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1348)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 28.6ms | ActiveRecord: 0.6ms | Allocations: 6222)
+
+
+Started GET "/users/5/edit" for ::1 at 2020-06-06 14:19:49 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ? ORDER BY "photos"."id" ASC LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_form.html.erb:20
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/users/_form.html.erb:21
+  Rendered users/_form.html.erb (Duration: 16.7ms | Allocations: 3454)
+  Rendered users/edit.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3826)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 26.9ms | ActiveRecord: 1.0ms | Allocations: 8687)
+
+
+Started GET "/users" for ::1 at 2020-06-06 14:20:09 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1480)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.3ms | Allocations: 5053)
+
+
+Started GET "/users/1" for ::1 at 2020-06-06 14:20:10 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 12.5ms | Allocations: 1285)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 22.8ms | ActiveRecord: 0.7ms | Allocations: 5372)
+
+
+Started GET "/images/original/missing.png" for ::1 at 2020-06-06 14:20:10 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-06-06 14:20:13 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 21.5ms | Allocations: 1757)
+Started GET "/images/original/missing.png" for ::1 at 2020-06-06 14:20:13 +0300
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 49.0ms | ActiveRecord: 1.1ms | Allocations: 37632)
+
+
+Started GET "/users/2" for ::1 at 2020-06-06 14:20:14 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1101)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 14.9ms | ActiveRecord: 1.7ms | Allocations: 5091)
+
+
+Started GET "/images/original/missing.png" for ::1 at 2020-06-06 14:20:14 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-06-06 14:20:15 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1260)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 25.0ms | ActiveRecord: 1.0ms | Allocations: 4688)
+
+
+Started GET "/images/original/missing.png" for ::1 at 2020-06-06 14:20:15 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/3" for ::1 at 2020-06-06 14:20:16 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1080)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.7ms | Allocations: 5041)
+
+
+Started GET "/images/original/missing.png" for ::1 at 2020-06-06 14:20:16 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-06-06 14:20:17 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1245)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 0.2ms | Allocations: 4680)
+
+
+Started GET "/images/original/missing.png" for ::1 at 2020-06-06 14:20:17 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'

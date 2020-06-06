@@ -17,7 +17,13 @@
   </div>
 
   <p>
-    asd
+    <% if user.photos.first.image.exists? %>
+    <%  @user.photos.each do |record|%>
+      <%= image_tag record.image.url %>
+      <% end %>
+    <%= %>
+    <% end %>
+
     <%= form.fields_for :photos do |foto_form| %>
       <%= foto_form.label :image, "Attach an Image" %><br />
       <%= foto_form.file_field :image %>

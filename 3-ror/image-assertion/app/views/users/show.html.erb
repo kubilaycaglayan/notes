@@ -5,7 +5,11 @@
   <%= @user.name %>
 </p>
 
-<p><%= image_tag @user.photos.first.image.url %></p>
+<div class="show-image">
+  <%  @user.photos.each do |record|%>
+    <%= image_tag record.image.url %>
+    <% end %>
+</div>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
