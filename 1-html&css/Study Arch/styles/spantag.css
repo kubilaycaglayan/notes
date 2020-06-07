@@ -1,0 +1,15 @@
+body {
+    margin: 0 auto;
+
+}
+
+p {
+    text-emphasis: none;
+    margin: 0 auto;
+}
+
+p:hover {
+    text-emphasis: ;
+    background-color: aqua;
+
+}

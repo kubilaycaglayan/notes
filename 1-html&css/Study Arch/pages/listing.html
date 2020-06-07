@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link href="../styles\listing.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <div id="nav-placeholder">  
+    </div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+    <main>
+        <h1>Listemiz</h1>
+        <ol>
+            <li>Bazı liste elemanları</li>
+            <li>Bazı liste elemanları
+                <ol>
+                    <li>Bazı liste elemanları</li>
+                    <li>Bazı liste elemanları</li>
+                </ol>
+            </li>
+
+            <li>Bazı liste elemanları</li>
+            <li>Bazı liste elemanları</li>
+            <li>Bazı liste elemanları</li>
+        </ol>
+    </main>
+</body>
+</html>

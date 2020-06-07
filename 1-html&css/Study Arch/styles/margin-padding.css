@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0 auto;
+    text-align: center;
+    
+    
+
+}
+
+p {
+    text-emphasis: none;
+    margin: 0 auto;
+}
+
+p:hover {
+    text-emphasis: ;
+    background-color: aqua;
+
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: crimson;
+    display: flex;
+    align-items: center;
+    padding: 1% 5%;
+    box-sizing: border-box;
+}
+
+nav a {
+    text-emphasis: none;
+}
+
+nav a:hover {
+    background-color: cornsilk;
+}
+
+.left {
+    
+
+
+
+}
+
+.mid{
+    margin: 0 auto;
+}
+
+.right {
+    position: relative;
+    right: 1%;
+}
+
+main {
+    margin: 2% auto;
+    padding: 2%;
+    border-style: dashed;
+    border-color: darkcyan;
+    width: 70%;
+    height: 55%;
+    margin-top: 2%;
+}
+
+main {
+    display: grid;
+    grid-template: 40% 60% / 1fr 1fr;
+}
+
+.schema {
+    grid-area: 1 / 1 / 3 / 2;
+    background-color: steelblue;
+} 
+.quarter {
+    padding: 3%;
+}
+
+.first {
+    grid-area: 1 / 2 / 2 / 2;
+}
+
+.second {
+    grid-area: 2 / 2 / 3 / 3;
+    
+}
+
+main > div {
+    border: 3px solid red;
+    margin: 1%;
+
+}
+
+.box {
+    margin: 5%;
+    border: 5px dotted snow;
+    background-color: chartreuse;
+    height: 60%;
+    width: 60%;
+    margin: 0 auto;
+    padding: 10%;
+}
+
+.inside {
+    border: 2px solid black;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+    
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+main > div > div {
+    margin: 3%;
+    padding: 1%;
+    border: 1px solid black;
+}
