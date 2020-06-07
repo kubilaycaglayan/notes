@@ -1,9 +1,10 @@
 def transpose(string)
-  string.size.times do |index|
-    p string[index..(index + 1)]
-    string[index..(index + 1)] = 'ng' if string[index..(index + 1)] == 'gn'    
-  end
-  return string
+  # your code here
+  while string.include?('gn')
+		string.gsub!('gn', 'ng')
+	end
+	
+	string
 end
 
 puts transpose('he was searchign on Bign for signign kigns')
@@ -14,3 +15,4 @@ puts transpose('rignadingdiggn!')
 
 puts transpose('gngngnnggnngggnnn')
 # => nnnnnnnnngggggggg
+
