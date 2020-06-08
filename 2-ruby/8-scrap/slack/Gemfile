@@ -1,0 +1,14 @@
+source "https://rubygems.org"
+
+gem 'nokogiri'
+gem 'httparty'
+gem 'byebug'
+
+gem 'mechanize'
+gem 'logger'
+
+gem 'zlib'
+
+gem 'env'
+
+gem 'httparty'
