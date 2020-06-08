@@ -1,5 +1,5 @@
 require './6-linked_lists.rb'
-
+# revise, go to repl, there is a link there at the bottom of the page.
 class Stack < LinkedList
   def initialize
     @stack = LinkedList.new
