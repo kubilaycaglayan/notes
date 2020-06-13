@@ -1,7 +1,17 @@
-<<<<<<< Updated upstream
-string = 'abcde'
-p string[2] = ''
-p string
-=======
-p [2,3] == [2,3]
->>>>>>> ror
+<<<<<<< HEAD
+
+string = 'gngngnnggnngggnnn'
+
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+p string.gsub!('gn', 'ng')
+>>>>>>> algorithms
