@@ -1,1 +1,1 @@
-console.log('Hello Wold! This is my first code!')
+console.log('Hello Wold! This is\n my first code!')
