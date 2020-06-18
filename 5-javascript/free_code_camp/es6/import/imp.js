@@ -1,1 +1,1 @@
-import * from './exp.js';
+import * as asd from './exp.js';
