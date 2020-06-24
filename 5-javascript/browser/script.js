@@ -1,7 +1,11 @@
 var a = 'kubilay';
 
-var b = 'yasin';
+const counterCreator = () => {
+  let count = 0;
+  return () => {
+    console.log(count);
+    count++;
+  };
+};
 
-var c = 'why';
-
-d = 'hamsi';
+const counter = counterCreator();
