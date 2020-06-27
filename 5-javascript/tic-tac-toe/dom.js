@@ -32,6 +32,7 @@ const PlayOnPage = (function PlayOnPage() {
   const startButton = document.getElementById('start-button');
   const restartButton = document.getElementById('restart-button');
   const form = document.getElementsByTagName('form')[0];
+  const turnBox = document.getElementsByClassName('turn')[0];
   hideElement(restartButton);
 
   const resultBox = document.getElementsByClassName('result')[0];
@@ -54,9 +55,10 @@ const PlayOnPage = (function PlayOnPage() {
   };
 
   const tie = function tie(index) {
-    feedback('this is a tie');
+    feedback('Nobody wins, a tie.');
     BoardListener.changeSquare(index);
     deactivateBoard();
+    hideElement(turnBox);
   };
 
   const winningPosition = function winningPosition(index) {
@@ -103,6 +105,7 @@ const PlayOnPage = (function PlayOnPage() {
     feedback(`${player1.name} won! Congratulations...`);
     BoardListener.changeSquare(index);
     deactivateBoard();
+    hideElement(turnBox);
     painter(winningPosition(winPositionIndex));
   };
 
@@ -110,6 +113,7 @@ const PlayOnPage = (function PlayOnPage() {
     feedback(`${player2.name} won! Congratulations...`);
     BoardListener.changeSquare(index);
     deactivateBoard();
+    hideElement(turnBox);
     painter(winningPosition(winPositionIndex));
   };
 
@@ -131,6 +135,7 @@ const PlayOnPage = (function PlayOnPage() {
         break;
       default:
         feedback(motivationalMessages.getRandomMessage());
+        setTurnBox();
         BoardListener.changeSquare(index);
         break;
     }
@@ -151,8 +156,14 @@ const PlayOnPage = (function PlayOnPage() {
       square.removeEventListener('click', listener, false);
     });
   };
-
-
+  
+  const setTurnBox = function setTurnBox() {
+    if (GameBoard.getTurn() % 2 === 0) {
+      turnBox.innerHTML = player1.name + '! It is your turn...';
+    } else {
+      turnBox.innerHTML = player2.name + '! It is your turn...';
+    };
+  };
 
   const start = function start() {
     activateBoard();
@@ -161,6 +172,9 @@ const PlayOnPage = (function PlayOnPage() {
     hideElement(startButton);
     hideElement(form);
     feedback('Make your move...');
+    setTurnBox();
+    showElement(turnBox);
+    showElement(resultBox);
   };
 
   const restart = function restart() {

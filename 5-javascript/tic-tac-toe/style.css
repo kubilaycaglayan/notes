@@ -13,4 +13,16 @@ body .board-wrapper {
   min-width: 310px;
   height: auto;
 }
+
+body .turn {
+  display: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  min-width: 310px;
+}
+
+body .result {
+  display: none;
+  min-width: 310px;
+}
 /*# sourceMappingURL=style.css.map */
