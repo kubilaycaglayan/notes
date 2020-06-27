@@ -4,9 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TicTacToe</title>
+  <script src="https://kit.fontawesome.com/2c6133bcaa.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <script src="main_a.js"></script>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 mt-5 text-center">
+        <form class="" action="javascript:void(0);">
+          <div class="input-wrapper text-center">
+            <label for="player1" class="text-white">
+             <strong> Player 1</strong>
+            </label>
+            <input class="p-2 mt-2" type="text" id="player1" placeholder="Kubilay">
+            <br>
+            <label for="player2"  class="text-white">
+              <strong> Player 2</strong>  
+            </label>
+            <input class="p-2 mt-2" type="text" id="player2" placeholder="Jamilia">
+            <br>
+            <input class="btn btn-light text-success mt-2" type="submit" id="start-button" value="Start">
+          </div>
+        </form>
+        <div class="btn btn-light text-success mt-3 w-25 mx-auto" id="restart-button">Restart</div>
+        
+        <div class="board-wrapper mx-auto my-3 bg-success p-3 rounded text-white">
+          <div class="board display-3">
+          <div class="row">
+              <div class="col-4 px-3 ml-auto" id="0"><i class="far fa-square"></i></div>
+              <div class="col-4 px-3" id="1"><i class="far fa-square"></i></div>
+              <div class="col-4 px-3 mr-auto" id="2"><i class="far fa-square"></i></div>
+            </div>
+            <div class="row">
+              <div class="col-4 px-3 ml-auto" id="3"><i class="far fa-square"></i></div>
+              <div class="col-4 px-3" id="4"><i class="far fa-square"></i></div>
+              <div class="col-4 px-3 mr-auto" id="5"><i class="far fa-square"></i></div>
+            </div>
+            <div class="row">
+              <div class="col-4 px-3 ml-auto" id="6"><i class="far fa-square"></i></div>
+              <div class="col-4 px-3" id="7"><i class="far fa-square"></i></div>
+              <div class="col-4 px-3 mr-auto" id="8"><i class="far fa-square"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="result bg-light text-success rounded w-25 mx-auto"></div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+  <script src="dom.js"></script>
 </body>
 </html>

@@ -1,12 +1,16 @@
 const NewBoard = (function NewBoard() {
   const board = ['', '', '', '', '', '', '', '', ''];
+  // const board = [...Array(9).keys()]
+  /* const board = [0, 1, 0,
+                 1, 0, 1,
+                 1, '', 1]; */
+  /* const board = [0, 1, 0, 1, 0, 1, 0, '', '']; */
   return { board };
 }());
 
 const GameBoard = (function Board() {
   let turn = 0;
   let board = [...NewBoard.board];
-  //const board = [...Array(9).keys()]
 
   const getBoard = function getBoard() {
     return board;
@@ -61,7 +65,6 @@ const GameBoard = (function Board() {
 }());
 
 const GamePlay = (function GameFlow() {
-  
   const winningPositions = function winningPositions() {
     const board = GameBoard.getBoard();
     return [
@@ -81,18 +84,22 @@ const GamePlay = (function GameFlow() {
   };
 
   const winningPositionsCheck = function winningPositionsCheck() {
-    let winner;
-    winningPositions().forEach((position) => {
+    let winnerAndPosition;
+    winningPositions().forEach((position, index) => {
       if (position.every((element) => element === 0)) {
-        winner = 0;
+        winnerAndPosition = [];
+        winnerAndPosition.push(0);
+        winnerAndPosition.push(index);
       }
       if (position.every((element) => element === 1)) {
-        winner = 1;
+        winnerAndPosition = [];
+        winnerAndPosition.push(1);
+        winnerAndPosition.push(index);
       }
     });
-    return winner;
+    return winnerAndPosition;
   };
-
+  
   const checkWin = function checkWin() {
     const winner = winningPositionsCheck();
     if (winner !== undefined) {
@@ -103,36 +110,85 @@ const GamePlay = (function GameFlow() {
 
   const checkTie = function checkTie() {
     const board = GameBoard.getBoard();
-    if (checkWin === false && board.every((element) => element === '')) {
+    if (checkWin() === false && board.every((element) => element !== '')) {
       return true;
     }
     return false;
   };
 
   const moveAndCheck = function moveAndCheck(index) {
-    GameBoard.move(index);
-    console.log(checkWin());
+    if (GameBoard.move(index)) {
+      const winner = checkWin();
+      if (winner !== false) {
+        return winner;
+      }
+      if (checkTie()) {
+        return ['tie'];
+      }
+      return true;
+    }
+    return ['taken'];
   };
 
-  return { winningPositions, moveAndCheck };
+  return { moveAndCheck };
 }());
 
-console.log(GameBoard.getBoard());
-GamePlay.moveAndCheck(0);
-GamePlay.moveAndCheck(1);
-GamePlay.moveAndCheck(2);
-GamePlay.moveAndCheck(3);
-console.log(NewBoard.board)
-GamePlay.moveAndCheck(4);
-GamePlay.moveAndCheck(5);
-GamePlay.moveAndCheck(6);
-console.log(GameBoard.getBoard());
-GameBoard.resetBoard();
-console.log(GameBoard.getBoard());
-GamePlay.moveAndCheck(4);
-GamePlay.moveAndCheck(5);
-GamePlay.moveAndCheck(6);
-console.log(GameBoard.getBoard());
+// console.log(GamePlay.moveAndCheck(7));
+// console.log(GameBoard.getBoard());
 
+const playerFactory = (name) => {
+  let winCount = 0;
 
-console.log(GamePlay.winningPositions);
+  const increaseWinCount = function increaseWinCount() {
+    winCount += 1;
+  };
+
+  const getWinCount = function getWinCount() {
+    return winCount;
+  };
+
+  return { name, increaseWinCount, getWinCount };
+};
+
+/* const kubi = playerFactory('Kubilay');
+kubi.increaseWinCount();
+
+const jam = playerFactory('Jamilia');
+jam.increaseWinCount();
+jam.increaseWinCount();
+
+console.log(jam.getWinCount());
+console.log(kubi.getWinCount()); */
+
+const motivationalMessages = (function motivationalMessages() {
+  const messages = [
+    'Interesting move...',
+    'Amazing idea!',
+    'That will be great.',
+    'Hmm, are you sure?',
+    'Yes, yess...',
+    'Okay, seems like a nice spot!',
+    'Wow!',
+    'How did you think that move?',
+    'Way to go...',
+    'One more step...',
+    'Brilliant!',
+    'Be careful!',
+    'What about the other blank?',
+    'Oops!',
+    'Yes!',
+    'Noooooo...',
+  ];
+
+  const randomNumber = function() {
+    return Math.floor(Math.random() * messages.length);
+  };
+
+  const getRandomMessage = function getRandomMessage() {
+    return messages[randomNumber()];
+  };
+
+  return {
+    getRandomMessage,
+  };
+}());
