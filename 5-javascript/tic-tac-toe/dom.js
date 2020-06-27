@@ -1,7 +1,6 @@
 const BoardListener = (function BoardListener() {
-  const circleShape = '<i class="far fa-circle"></i>';
-  const squareShape = '<i class="far fa-square">';
-  const xShape = '<i class="fas fa-times"></i>';
+  const circleShape = '<i class="far fa-circle text-warning"></i>';
+  const xShape = '<i class="fas fa-times text-primary"></i>';
 
   const changeSquare = function changeSquare(index) {
     if (GameBoard.getTurn() % 2 === 0) {
@@ -60,22 +59,64 @@ const PlayOnPage = (function PlayOnPage() {
     deactivateBoard();
   };
 
-  const player1Won = function player1Won(index) {
+  const winningPosition = function winningPosition(index) {
+    let value;
+    switch (index) {
+      case 0:
+        value = [0, 1, 2];
+        break;
+      case 1:
+        value = [3, 4, 5];
+        break;
+      case 2:
+        value = [6, 7, 8];
+        break;
+      case 3:
+        value = [0, 3, 6];
+        break;
+      case 4:
+        value = [1, 4, 7];
+        break;
+      case 5:
+        value = [2, 5, 8];
+        break;
+      case 6:
+        value = [0, 4, 8];
+        break;
+      case 7:
+        value = [2, 4, 6];
+        break;
+      default:
+        value = [];
+    }
+    return value;
+  };
+
+  const painter = function painter(winningPosition) {
+    winningPosition.forEach((index) => {
+      const element = document.getElementById(index).firstChild;
+      element.className += ' text-danger';
+    });
+  };
+
+  const player1Won = function player1Won(index, winPositionIndex) {
     feedback(`${player1.name} won! Congratulations...`);
     BoardListener.changeSquare(index);
     deactivateBoard();
+    painter(winningPosition(winPositionIndex));
   };
 
-  const player2Won = function player2Won(index) {
+  const player2Won = function player2Won(index, winPositionIndex) {
     feedback(`${player2.name} won! Congratulations...`);
     BoardListener.changeSquare(index);
     deactivateBoard();
+    painter(winningPosition(winPositionIndex));
   };
 
   const engine = function engine(index) {
     const result = GamePlay.moveAndCheck(index);
     feedback('');
-    switch (result) {
+    switch (result[0]) {
       case 'tie':
         tie(index);
         break;
@@ -83,10 +124,10 @@ const PlayOnPage = (function PlayOnPage() {
         feedback('that place is taken');
         break;
       case 0:
-        player1Won(index);
+        player1Won(index, result[1]);
         break;
       case 1:
-        player2Won(index);
+        player2Won(index, result[1]);
         break;
       default:
         feedback(motivationalMessages.getRandomMessage());

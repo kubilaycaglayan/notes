@@ -84,16 +84,20 @@ const GamePlay = (function GameFlow() {
   };
 
   const winningPositionsCheck = function winningPositionsCheck() {
-    let winner;
-    winningPositions().forEach((position) => {
+    let winnerAndPosition;
+    winningPositions().forEach((position, index) => {
       if (position.every((element) => element === 0)) {
-        winner = 0;
+        winnerAndPosition = [];
+        winnerAndPosition.push(0);
+        winnerAndPosition.push(index);
       }
       if (position.every((element) => element === 1)) {
-        winner = 1;
+        winnerAndPosition = [];
+        winnerAndPosition.push(1);
+        winnerAndPosition.push(index);
       }
     });
-    return winner;
+    return winnerAndPosition;
   };
   
   const checkWin = function checkWin() {
@@ -119,11 +123,11 @@ const GamePlay = (function GameFlow() {
         return winner;
       }
       if (checkTie()) {
-        return 'tie';
+        return ['tie'];
       }
       return true;
     }
-    return 'taken';
+    return ['taken'];
   };
 
   return { moveAndCheck };
