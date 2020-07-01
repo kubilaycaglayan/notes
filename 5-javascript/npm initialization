@@ -1,0 +1,102 @@
+https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
+
+inside the root directory:
+💲️npm init
+
+creates => package.json
+
+💲️npm install moment --save
+
+installs => moment package
+modifies => package.json
+
+to install dependencies:
+💲️ npm install
+
+Now we can link npm downloaded version of moment to our html file.
+
+🖇️ <script src="node_modules/moment/min/moment.min.js"></script>
+
+💻️ in server environment, when you are running your js code in node.js runtime, you can use this in your js file, instead of script tag in html:
+
+🖇️ var moment = require('moment');
+
+But if we try to use above code in the browser, require keyword will not work because our browser does not have access to the file system.
+This is the exact point where a module bundler comes in.
+
+A javascript module bundler is a tool that solves this problem by adding a build step. To create an output file which is browser compatible. In this case we need a module bundler which finds all the require keywords and replaces them with the actual contents of the files.
+
+➡️ To make it work we first should install webpack into our project. Webpack itself is an npm package.
+
+💲️ npm install webpack webpack-cli --save-dev
+
+After this command we have webpack and webpack-cli installed in our project. We can use webpack in the command line as follows:
+
+💲️ ./node_modules/.bin/webpack index.js --mode=development
+
+After this, change the script source in your html with dist/index.js
+
+And webpack can read options from a file in the root directory named webpack.config.js
+As you can see in this file, webpack recorded our entry file and output file. After this first step calling only webpack will work too.
+
+💲️ ./node_modules/.bin/webpack
+
+
+🍎️ Using Babel =>
+
+💲️ npm install @babel/core @babel/preset-env babel-loader --save-dev
+
+configure wepack.config.js
+
+ module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  }
+
+🍎️ Task Runner =>
+
+Automates some parts of the build process.
+Nowadays the most popular choice seems like to be the npm package manager itself which doesn't use plug-ins but works with other command line tools directly.
+
+=> To configure our package.json file in the way we want, we can add two lines (build and watch)
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch"
+  },
+
+to run build =>
+--process option shows the percent progress
+--mode=production to minimize the code for production
+
+💲️ npm run build
+
+to run watch script =>
+
+💲️ npm run watch
+
+ℹ️ Note that scripts in package.json can run webpack without specifying the full path.
+
+=> Live Reload =>
+
+💲️ npm install webpack-dev-server --save-dev 
+
+add to the package.json =>
+
+"server": "webpack-dev-server --open"
+
+💲️ npm run server
+
+
+
