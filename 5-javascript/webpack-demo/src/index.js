@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import myName from './myName';
 import './style.css';
+import Icon from './icon.jpg';
+import Data from './data.xml';
 
 function component() {
   const element = document.createElement('div');
@@ -10,6 +12,17 @@ function component() {
   element.innerHTML = _.join(['Hello', 'webpack '], ' ');
   element.innerHTML += myName('Kubilay');
   element.classList.add('hello');
+  element.classList.add('img');
+
+  // Add the image to our existing div
+  const myIcon = new Image();
+  myIcon.src = Icon;
+
+  element.appendChild(myIcon);
+
+  console.log(Data);
+
+  console.log(Data.note.body);
 
   return element;
 }
