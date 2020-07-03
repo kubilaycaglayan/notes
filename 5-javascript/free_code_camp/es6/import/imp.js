@@ -1,0 +1,1 @@
+import * as asd from './exp.js';

@@ -1,0 +1,21 @@
+body {
+  background-color: red;
+}
+
+.left {
+  background-color: green;
+  float: left;
+  clear: both;
+  height: 100vh;
+}
+
+.mid {
+  background-color: greenyellow;
+  height: 200vh;
+}
+
+.right {
+  float: right;
+  background-color: grey;
+  height: 100vh;
+}

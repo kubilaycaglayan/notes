@@ -1,0 +1,28 @@
+body {
+  background-image: url("ttt.jpg");
+  background-size: cover;
+  height: 100vh;
+  background-position-y: 60%;
+  background-position-x: 50%;
+}
+
+body .board-wrapper {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  min-width: 310px;
+  height: auto;
+}
+
+body .turn {
+  display: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  min-width: 310px;
+}
+
+body .result {
+  display: none;
+  min-width: 310px;
+}
+/*# sourceMappingURL=style.css.map */

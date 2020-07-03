@@ -1,0 +1,1 @@
+import stampit from 'stampit';
