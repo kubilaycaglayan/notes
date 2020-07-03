@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Yellowtail';
+  src: url('./Yellowtail-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hello {
+  color: red;
+  font-family: 'Yellowtail';
+  background: url('./icon.jpg');
+  background-size: cover;
+  background-position-x: center;
+  height: 100vh;
+}
+
+img {
+  width: 250px;
+}

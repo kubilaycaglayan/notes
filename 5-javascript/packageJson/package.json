@@ -1,0 +1,12 @@
+{
+  "name": "kubilay-s-first-package",
+  "version": "1.0.0",
+  "description": "I am building npm init for the first time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
