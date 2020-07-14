@@ -1,0 +1,37 @@
+$img-size: 400px
+
+@keyframes show
+  0%
+    opacity: 0.4
+  50%
+    opacity: 0.8
+  100%
+    opacity: 1
+
+main
+  min-height: 120vh
+  #imageSlider
+    margin: 0 auto
+    position: relative
+    width: $img-size * 1.4
+    .cimg
+      animation-name: show
+      animation-duration: 1s
+    img
+      width: $img-size * 1.4
+      height: $img-size
+  .arrows
+    font-size: $img-size / 8
+    cursor: pointer
+    position: absolute
+    top: $img-size / 3
+    z-index: 99
+    padding: 2rem
+  .fa-chevron-right
+    right: -25%
+  .fa-chevron-left
+    left: -25%
+  .navDots
+    cursor: pointer
+    margin-top: 15px
+    padding: 3px
