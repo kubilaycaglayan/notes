@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    console.log('success')
+    function checkFileSize() {
+      console.log('controling')
+      var FS = document.getElementById("FS");
+      var files = FS.files;
+
+      // If there is (at least) one file selected
+      if (files.length > 0) {
+        if (files[0].size > 75 * 1024) { // Check the constraint
+          console.log('invalid')
+          FS.setCustomValidity("The selected file must not be larger than 75 kB");
+          return;
+        }
+      }
+      // No custom constraint violation
+      console.log('valid')
+      FS.setCustomValidity("");
+    }
+
+    window.onload = function () {
+      document.getElementById("FS").onchange = checkFileSize;
+    }
+  </script>
+</head>
+<body>
+  <label for="FS">Select a file smaller than 75 kB : </label>
+  <input type="file" id="FS">
+</body>
+</html>
