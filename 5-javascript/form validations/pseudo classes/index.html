@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Basics</title>
+  <style>
+    form {
+      margin: 15% auto;
+      text-align: center;
+    }
+
+    input:invalid {
+      border: 2px dashed red;
+    }
+
+    input:invalid:required {
+      background-image: linear-gradient(to right, pink, lightgreen);
+    }
+
+    input:valid {
+      border: 2px solid black;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <form>
+  <label for="choose">Would you prefer a banana or cherry?</label>
+  <input id="choose" name="i_like" required>
+  <button>Submit</button>
+</form>
+</body>
+</html>

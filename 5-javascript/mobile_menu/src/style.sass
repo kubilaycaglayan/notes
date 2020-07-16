@@ -1,0 +1,19 @@
+$main-button-color: #FCC237
+$max-width: 700px
+
+main
+  height: 120vh
+#mobileMenu
+  display: none
+@media ( max-width: $max-width )
+  #mobileMenu
+    display: block
+    width: 80%
+    position: fixed
+    bottom: 3%
+    right: 3%
+    .main-button-wrapper
+      .main-button
+        font-size: 2rem
+        color: $main-button-color
+        float: right
