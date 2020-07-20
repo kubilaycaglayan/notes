@@ -1,0 +1,21 @@
+body
+  margin: 15% auto
+  text-align: center
+
+
+@keyframes spinning
+  0%
+    font-size: 1em
+    transform: rotate(0deg)
+  100%
+    font-size: 1em
+    transform: rotate(360deg)
+
+.spinner
+  margin: 0 auto
+  text-align: center
+  font-size: 3em
+  animation-name: spinning
+  animation-duration: 3s
+  animation-iteration-count: infinite
+  animation-timing-function: linear
