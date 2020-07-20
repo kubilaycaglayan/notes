@@ -40,9 +40,9 @@ end
 def balance_helper(node)
   return true if node.nil?
 
-  return false unless ((binary_tree_height(node.left) - binary_tree_height(node.right)).abs < 2) && balance_helper(node.left) && balance_helper(node.right)
+  return false unless ((binary_tree_height(node.left) - binary_tree_height(node.right)).abs < 2)
 
-  return true
+  balance_helper(node.left) && balance_helper(node.right)
 end
 
 puts balanced_tree?([1, 2, 0, 3, 4, 0, 0])
