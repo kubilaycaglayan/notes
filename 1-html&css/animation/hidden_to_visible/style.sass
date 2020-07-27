@@ -1,0 +1,20 @@
+@keyframes fade_in
+  0%
+    visibility: hidden
+    opacity: 0
+    left: -500px
+  100%
+    left: 0
+    visibility: visible
+    opacity: 1
+
+.hello
+  position: relative
+  left: -500px
+  font-size: 3em
+  visibility: hidden
+
+.fade-in
+  animation-name: fade_in
+  animation-duration: 2s
+  animation-fill-mode: forwards
