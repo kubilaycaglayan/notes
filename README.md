@@ -1,13 +1,62 @@
 # Notes
 
-This is repository for me to keep some of my notes, studies, and applications altogether.
-It allows me to access them across multiple platforms.
+> All my practices are saved in this repository.
 
-#### Feel free to contribute...
+## Built With
 
-#### Give a star if you like this...
+• JavaScript
+• Ruby
+• Ruby On Rails
+• React
+• Redux
+• SQL
+• MVC
+• Bootstrap
+• RSpec
+• Sass
 
-### Author: 
-[Kubilay Çağlayan](https://kubilaycaglayan.com)
-#### [Visit my page](https://kubilaycaglayan.com)
-![ss portfolio](https://user-images.githubusercontent.com/60448833/83946414-5b70f680-a819-11ea-9841-0368e6636501.png)
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Setup
+
+- `git clone https://github.com/kubilaycaglayan/notes.git`
+
+### Usage
+
+- `cd notes`
+- And then you can browse through the files.
+
+### Run tests
+
+- There is no automated tests for this project.
+
+
+## Authors
+
+👤 **Kubilay Caglayan**
+
+- Website: [kubilay](https://kubilaycaglayan.com)
+- Github: [@kubilaycaglayan](https://github.com/kubilaycaglayan)
+- Twitter: [@kbcaglayan](https://twitter.com/kbcaglayan)
+- Linkedin: [linkedin](https://linkedin.com/in/kubilaycaglayan)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Microverse
+- Odin Project
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
