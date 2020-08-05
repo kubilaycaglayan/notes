@@ -1,0 +1,23 @@
+{
+  "name": "mobile_menu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "css-loader": "^3.6.0",
+    "style-loader": "^1.2.1"
+  }
+}

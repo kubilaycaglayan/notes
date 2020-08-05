@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Form validation: Task 3</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <br>
+      <span class="error"></span>
+      <br>
+      <label for="mail">I would like you to provide me with an e-mail address:</label>
+      <input type="email" id="mail" name="mail" minlength="10" required>
+      <button>Submit</button>
+
+    </form>
+  </body>
+  <script>
+    const email = document.getElementById("mail");
+    const errorMessageBox = document.getElementsByTagName('span')[0];
+    let message = [];
+    const validate = function () {
+      if (email.validity.tooShort) {
+        message[0] = 'Minimum length 10 chars. '
+      } else {
+         message[0]= '';
+      }
+
+      if (email.validity.typeMismatch) {
+        message[1] = 'Type mismatch. '
+      } else {
+         message[1]= '';
+      }
+
+      if (email.validity.valueMissing) {
+        message[2] = 'Email field is empty. '
+      } else {
+         message[2]= '';
+      }
+      errorMessageBox.innerHTML = message.join('').trim()
+      return email.validity.tooShort && email.validity.typeMismatch && email.validity.valueMissing
+    }
+
+    email.addEventListener('input', function (event) {
+      console.log('input received')
+      validate();
+    })
+  </script>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Form validation: Task 1</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form novalidate>
+      <h2>Enter your support query</h2>
+      <ul>
+        <li>
+          <label for="uname">User name:</label>
+          <input type="text" name="uname" id="uname" minlength="5" maxlength="20" required>
+        </li>
+        <li>
+          <label for="email">Email address:</label>
+          <input type="email" name="email" id="email" required>
+          <span class="error"></span>
+        </li>
+        <li>
+          <label for="phone">Phone number:</label>
+          <input type="tel" name="phone" id="phone" maxlength="15" pattern='\d*' required>
+          <span class="error"></span>
+        </li>
+        <li>
+          <label for="comment">Comment:</label>
+          <textarea name="comment" id="comment" maxlength="200" required>
+          </textarea>
+          <span class="error"></span>
+        </li>
+        <li>
+          <button>Submit comment</button>
+        </li>
+      </ul>
+    </form>
+
+    <script>
+      const form = document.getElementsByTagName('form')[0]
+      const email = document.getElementById('email')
+      const emailErrorMessageField = document.querySelector('#email + span.error')
+      const phone = document.getElementById('phone')
+      const phoneErrorMessageField = document.querySelector('#phone + span.error')
+      const comment = document.getElementById('comment')
+      const commentErrorMessageField = document.querySelector('#comment + span.error')
+      const submit = document.getElementsByTagName('button')[0]
+      comment.value = ''
+      const validateEmail = function() {
+        if (email.validity.valid) {
+          emailErrorMessageField.innerHTML = '';
+          return true
+        } else {
+          emailErrorMessageField.innerHTML = 'Wrong email address.'
+          return false
+        }
+      }
+
+      const validatePhone = function() {
+        if (phone.validity.valid) {
+          phoneErrorMessageField.innerHTML = '';
+          return true
+        } else {
+          phoneErrorMessageField.innerHTML = 'Wrong phone number.'
+          return false
+        }
+      }
+
+      const validateComment = function() {
+        if (comment.validity.valid) {
+          commentErrorMessageField.innerHTML = '';
+          return true
+        } else {
+          commentErrorMessageField.innerHTML = 'Too long or too short comment.'
+          return false
+        }
+      }
+
+      const valid = function valid() {
+        const emailResult = validateEmail();
+        const phoneResult = validatePhone();
+        const commentResult = validateComment();
+        if (emailResult && phoneResult && commentResult) {
+          return true;
+        }
+        return false;
+      }
+
+      form.addEventListener('submit', function (event) {
+        if (!valid()) {
+          event.preventDefault();
+        }
+      });
+    </script>
+  </body>
+
+</html>

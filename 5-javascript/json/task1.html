@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    let requestURL = 'https://raw.githubusercontent.com/mdn/learning-area/master/javascript/oojs/tasks/json/sample.json';
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    let catsObj;
+    let catString;
+
+    request.onload = function () {
+      catsObj = request.response;
+      catString = JSON.stringify(catsObj)
+    }
+
+    const displayCatInfo = function () {
+      const motherInfo = `${catsObj[0].name}, ${catsObj[1].name}, ${catsObj[2].name}`
+      let totalNumberOfKittens = 0;
+      let numberOfMaleKittens = 0;
+      let numberOfFemaleKittens = 0;
+      /* = catsObj[0].kittens.length + catsObj[1].kittens.length + catsObj[2].kittens.length */
+
+      catsObj.forEach((catObj) => {
+        catObj.kittens.forEach((kitten) => {
+          totalNumberOfKittens += 1;
+          if (kitten.gender === 'm') {
+            numberOfMaleKittens += 1;
+          } else if (kitten.gender === 'f') {
+            numberOfFemaleKittens += 1;
+          }
+        })
+      });
+
+      return {
+        motherInfo,
+        totalNumberOfKittens,
+        numberOfMaleKittens,
+        numberOfFemaleKittens,
+      }
+    }
+
+  </script>
+</body>
+</html>

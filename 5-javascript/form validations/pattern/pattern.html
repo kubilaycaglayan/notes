@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pattern Validation</title>
+</head>
+<style>
+  form {
+    text-align: center;
+    margin: 15% auto;
+  }
+
+  input:focus:invalid {
+    outline: none;
+    border: 1px solid red;
+  }
+</style>
+<body>
+  <form>
+    <label for="choose">Would you prefer a banana or a cherry?</label>
+    <input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry">
+    <button>Submit</button>
+  </form>
+</body>
+</html>

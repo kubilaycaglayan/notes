@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Project</title>
+</head>
+<body>
+  <form novalidate>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <span class="error"></span>
+    <br><br>
+
+    <label for="country">Country:</label>
+    <input type="text" id="country" required>
+    <span class="error"></span>
+    <br><br>
+
+    <label for="zipcode">Zipcode:</label>
+    <input type="number" id="zipcode" required>
+    <span class="error"></span>
+    <br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    <span class="error"></span>
+    <br><br>
+
+    <label for="password-confirmation">Password Confirmation:</label>
+    <input type="password" id="password-confirmation" required>
+    <span class="error"></span>
+    <br><br>
+
+    <button>Submit</button>
+  </form>
+</body>
+  <script>
+    const form = document.getElementsByTagName('form')[0]
+
+    const inputFieldCreator = function(inputName) {
+      inputField = document.getElementById(inputName)
+      inputField.name = inputName
+      inputField.errorMessage = `Wrong ${inputName}`
+      return {
+        inputField
+      }
+    }
+
+    const { inputField: email } = inputFieldCreator('email')
+    const { inputField: country } = inputFieldCreator('country')
+    const { inputField: zipcode } = inputFieldCreator('zipcode')
+    const { inputField: password } = inputFieldCreator('password')
+    const { inputField: passwordConfirmation } = inputFieldCreator('password-confirmation')
+
+    const inputFields = [
+      email,
+      country,
+      zipcode,
+      password,
+      passwordConfirmation,
+    ]
+
+    const errorStyle = function (element) {
+      element.style.outline = '2px solid red'
+    }
+
+    const correctStyle = function (element) {
+      element.style.outline = '1px solid black'
+    }
+
+    const setErrorMessage = function (element) {
+      errorMessageField = document.querySelector(`#${element.name} + span.error`)
+      errorMessageField.innerHTML = element.errorMessage
+    }
+
+    const clearErrorMessage = function (element) {
+      errorMessageField = document.querySelector(`#${element.name} + span.error`)
+      errorMessageField.innerHTML = ''
+    }
+
+    const validate = function (element) {
+      if (!element.checkValidity()) {
+        errorStyle(element)
+        setErrorMessage(element)
+        return
+      }
+      correctStyle(element)
+      clearErrorMessage(element)
+    }
+
+    const validateAll = function () {
+      inputFields.forEach((field) => {
+        validate(field)
+      })
+    }
+
+    inputFields.forEach((field) => {
+      field.addEventListener('focusout', function (event) {
+        validate(field)
+       })
+    })
+
+    const confirmPassword = function () {
+      if (password.value === passwordConfirmation.value) {
+        correctStyle(passwordConfirmation)
+        clearErrorMessage(passwordConfirmation)
+        return true
+      }
+      errorStyle(passwordConfirmation)
+      setErrorMessage(passwordConfirmation)
+      return false
+    }
+
+    passwordConfirmation.addEventListener('focusout', function (event) {
+      confirmPassword()
+    })
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        validateAll()
+        if (!form.checkValidity() || !confirmPassword()) {
+          return;
+        }
+        console.log('High Five!')
+      });
+  </script>
+</html>
