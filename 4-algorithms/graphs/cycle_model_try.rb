@@ -1,19 +1,15 @@
 def graph_cycle?(graph)
-  # write your code here
+
   queue = [0]
   visited = []
 
   while queue.size != 0
     head = queue.shift
+    next if graph[head].nil?
     visited << head
+
     not_visited = graph[head].reject { |node| visited.include? node }
-    puts "____"
-    puts "head: #{head}"
-    puts "  not visited: #{not_visited}"
-    puts "  sub_nodes: #{graph[head]}"
-    puts "____"
-    puts "  visited: #{visited}"
-    return true if not_visited.size < (graph[head].size - 1)
+    return true if not_visited.size < graph[head].size - 1
 
     visited += not_visited
     queue += not_visited
@@ -37,7 +33,6 @@ puts graph_cycle?({
   1=>[2],
   2=>[0, 1, 3, 4, 5],
   3=>[2],
-  4=>[2],
-  5=>[2]
+  4=>[2]
 })
 # => false
