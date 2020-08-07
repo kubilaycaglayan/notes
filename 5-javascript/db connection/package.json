@@ -1,14 +1,18 @@
 {
   "name": "db-connection",
   "version": "1.0.0",
-  "description": "",
+  "description": "Trying to connect db",
   "main": "connect_a.js",
   "dependencies": {
     "mysql": "^2.18.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch"
   },
   "author": "",
   "license": "ISC"

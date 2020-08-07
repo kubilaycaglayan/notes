@@ -1,3 +1,7 @@
+// failed to bundle
+// these three dependencies are not client-side suitable:
+// fs, net, tls
+
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : process.env.DATABASE_HOST,
