@@ -1,4 +1,4 @@
-require './node.rb'
+require_relative 'node'
 
 class LinkedList
   attr_accessor :head, :tail, :size
@@ -27,6 +27,17 @@ class LinkedList
     end
 
     node.value
+  end
+
+  def set(value, index)
+    node = @head
+
+    while index > 0 && node
+      node = node.next_node
+      index -= 1
+    end
+
+    node.value = value
   end
 
   def add_at(index, value)
@@ -78,7 +89,7 @@ class LinkedList
   def show
     my_list = []
     ObjectSpace.each_object(Node) do |object|
-      p object
+      object
       my_list << object.value if object.value != nil
     end
     p my_list
@@ -105,7 +116,7 @@ class LinkedList
     @size == 0 ? true : false
   end
 
-  private 
+  private
 
   def get_node(index)
     node = @head
