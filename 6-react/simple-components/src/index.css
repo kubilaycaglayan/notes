@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+}
+
+.father {
+  margin: 0 auto;
+  padding: 3%;
+  background-color: aquamarine;
+  width: 500px;
+  height: 500px;
+}
+
+.kid {
+  margin: 3% auto;
+  background-color: white;
+  width: 200px;
+  height: 200px;
+}
