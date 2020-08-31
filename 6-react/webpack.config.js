@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './input-manipulation/always-vera-caglayan/src/index.js',
+  entry: './redux/src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, './input-manipulation/always-vera-caglayan/dist'),
+    path: path.resolve(__dirname, './redux/dist'),
   },
   module: {
     rules: [
