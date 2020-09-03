@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './egghead/src/index.js',
+  entry: './egghead/moduled/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, './egghead/dist'),

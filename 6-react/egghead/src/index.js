@@ -4,4 +4,13 @@
 // import todoPage from './11-todo';
 // import todoPage from './12-todoToggle';
 // import todoPage from './13-todoFilter';
-import todoPage from './15-presentationalComponents2';
+// import todoPage from './15-presentationalComponents2';
+// import todoPage from './16-ExtractingContainerComponents';
+// import todoPage from './17-ExtractingContainerComponents2';
+// import todoPage from './18-passingStoreDownExplicitly';
+// import todoPage from './19-passingStoreDownExplicitlyWithContext';
+// import todoPage from './20-react-redux-Provider';
+// import todoPage from './21-Provider-connect';
+// import todoPage from './22-Provider-connect AddTodo';
+// import todoPage from './23-Provider-connect FooterLink';
+import todoPage from './24-ExtractingActionCreators';

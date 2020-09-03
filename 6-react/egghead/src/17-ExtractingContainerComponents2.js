@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux';
 
@@ -59,13 +59,12 @@ const todoPage = (() => {
 
   const store = createStore(todoApp)
 
-  const FilterLink = ({
-    filter,
+  const Link = ({
+    active,
     children,
-    currentFilter,
     onClick,
   }) => {
-    if (filter === currentFilter) {
+    if (active) {
       return <span>{children}</span>
     }
     return (
@@ -73,12 +72,46 @@ const todoPage = (() => {
         href='#'
         onClick={e => {
           e.preventDefault();
-          onClick(filter);
+          onClick();
         }}
       >
         {children}
       </a>
     )
+  }
+
+  class FilterLink extends Component {
+    componentDidMount() {
+      this.unsubscribe = store.subscribe(() =>
+        this.forceUpdate()
+      );
+    }
+
+    componentWillUnmount() {
+      this.unsubscribe();
+    }
+
+    render () {
+      const props = this.props;
+      const state = store.getState();
+
+      return (
+        <Link
+          active={
+            props.filter ===
+            state.visibilityFilter
+          }
+          onClick={() =>
+            store.dispatch({
+              type: 'SET_VISIBILITY_FILTER',
+              filter: props.filter,
+            })
+          }
+        >
+          {props.children}
+        </Link>
+      )
+    }
   }
 
   const getVisibleTodos = (
@@ -130,9 +163,7 @@ const todoPage = (() => {
     </ul>
   )
 
-  const AddTodo = ({
-    onAddClick
-  }) => {
+  const AddTodo = () => {
     let input;
 
     return (
@@ -141,7 +172,11 @@ const todoPage = (() => {
         </input>
         <button
         onClick={() => {
-          onAddClick(input.value);
+          store.dispatch({
+            type: 'ADD_TODO',
+            id: nextTodo += 1,
+            text: input.value,
+          })
           input.value = '';
         }}
         >
@@ -151,70 +186,69 @@ const todoPage = (() => {
     )
   }
 
-  const Footer = ({
-    visibilityFilter,
-    onFilterClick,
-  }) => (
+  const Footer = () => (
     <p>
       Show:
       {' '}
       <FilterLink
         filter= 'SHOW_ALL'
-        currentFilter={visibilityFilter}
-        onClick={onFilterClick}
       >
         ALL
       </FilterLink>
       {' '}
       <FilterLink
         filter= 'SHOW_ACTIVE'
-        currentFilter={visibilityFilter}
-        onClick={onFilterClick}
       >
         Active
       </FilterLink>
       {' '}
       <FilterLink
         filter= 'SHOW_COMPLETED'
-        currentFilter={visibilityFilter}
-        onClick={onFilterClick}
       >
         Completed
       </FilterLink>
     </p>
   )
 
+  class VisibleTodoList extends Component {
+    componentDidMount() {
+      this.unsubscribe = store.subscribe(() =>
+        this.forceUpdate()
+      );
+    }
+
+    componentWillUnmount() {
+      this.unsubscribe();
+    }
+
+    render () {
+      const props = this.props;
+      const state = store.getState();
+      return (
+        <TodoList
+          todos={
+            getVisibleTodos(
+              state.todos,
+              state.visibilityFilter
+            )
+          }
+          onTodoClick={id =>
+            store.dispatch({
+              type: 'TOGGLE_TODO',
+              id,
+            })
+          }
+        />
+      )
+    }
+  }
+
   let nextTodo = 0;
-  const TodoApp = ({
-    todos,
-    visibilityFilter
-  }) => (
+  const TodoApp = () => (
     <div>
-      <AddTodo
-        onAddClick={text =>
-          store.dispatch({
-            type: 'ADD_TODO',
-            id: nextTodo += 1,
-            text,
-          })
-        }
-      />
-      <TodoList
-        todos={getVisibleTodos(todos, visibilityFilter)}
-        onTodoClick={id => store.dispatch({
-          type: 'TOGGLE_TODO',
-          id,
-        })}
-      />
-      <Footer
-        visibilityFilter={visibilityFilter}
-        onFilterClick={filter =>
-          store.dispatch({
-            type: 'SET_VISIBILITY_FILTER',
-            filter
-          })
-        }
-      />
+      <AddTodo />
+      <VisibleTodoList />
+      <Footer />
     </div>
   )
 
