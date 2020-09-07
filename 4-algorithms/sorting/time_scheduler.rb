@@ -1,5 +1,5 @@
 class Meeting
-  attr_reader :event, :EVENTS
+  attr_reader :event
   @@EVENTS = {}
   @@OVERLAPS = {}
   def initialize(event)
@@ -88,6 +88,7 @@ class Organizer
   end
 
   def filter
+    p Meeting.overlaps
     Meeting.optimize
   end
 end
@@ -97,7 +98,20 @@ def time_scheduler(array)
   meetings.filter
 end
 
+=begin ,
 p time_scheduler([1, 3, 4, 8, 7, 9, 5, 6])
 # => [[1,3], [5,6], [7,9]]
+=end
+
 puts
-time_scheduler([3, 8, 1, 2, 3, 9, 1, 5, 4, 5, 8, 14])
+p time_scheduler([3, 8, 1, 2, 3, 9, 1, 5, 4, 5, 8, 14])
+# => [[1, 2], [4, 5], [8, 14]]
+
+=begin
+puts
+p time_scheduler([0, 1, 14, 16, 4, 8, 10, 12, 7, 9, 8, 15, 3, 5])
+# => [[0, 1], [14, 16], [10, 12], [7, 9], [8, 15], [3, 5]]
+puts
+p time_scheduler([2, 6, 5, 10, 7, 12, 0, 9, 4, 8])
+# => [[2, 6], [7, 12]]
+=end
