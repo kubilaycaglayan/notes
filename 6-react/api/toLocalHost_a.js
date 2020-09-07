@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 // const url = "https://www.google.com"
-const url = "http://localhost:3000/api/users"
+const url = "http://localhost:3000/users"
 
 fetch(url)
 .then(
