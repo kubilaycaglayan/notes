@@ -9,6 +9,7 @@ class Meeting
 
   def filter
     @filtered << @meetings[0]
+
     @meetings.each_with_index do |meeting,index|
       last = @filtered.last[1]
       @filtered << meeting if meeting[0] > last
@@ -17,9 +18,6 @@ class Meeting
 
   def result
     @filtered
-  end
-
-  class << self
   end
 
   private
