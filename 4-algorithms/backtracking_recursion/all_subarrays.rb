@@ -2,7 +2,7 @@
 
 def printSubsequences(arr, index = 0, subarr = [], result = [])
   if index == arr.size
-    result << subarr
+    result << subarr  # BASE CASE
   else
     printSubsequences(arr, index + 1, subarr, result)
     printSubsequences(arr, index + 1, subarr + [arr[index]], result)
