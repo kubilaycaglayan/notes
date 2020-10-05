@@ -1,5 +1,14 @@
-def p2
-  return false
+
+def repeat(arg)
+  non_zero = true
+  p arg
+
+  if arg == 0
+    return false
+  end
+
+  return repeat(arg - 1) if repeat(arg - 1) == false
+  non_zero
 end
 
-p2 || (p 3)
+puts repeat 2
