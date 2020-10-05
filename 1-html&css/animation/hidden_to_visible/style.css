@@ -1,0 +1,42 @@
+@-webkit-keyframes fade_in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    left: -500px;
+  }
+  100% {
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade_in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    left: -500px;
+  }
+  100% {
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.hello {
+  position: relative;
+  left: -500px;
+  font-size: 3em;
+  visibility: hidden;
+}
+
+.fade-in {
+  -webkit-animation-name: fade_in;
+          animation-name: fade_in;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+/*# sourceMappingURL=style.css.map */
