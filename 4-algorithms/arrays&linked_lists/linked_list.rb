@@ -1,6 +1,8 @@
 require_relative './node'
 
 class LinkedList
+  attr_reader :size
+
   def initialize
     @head = nil
     @tail = nil
@@ -100,21 +102,9 @@ class LinkedList
 
     array
   end
+
+  def empty?
+    return false if @size > 0
+    true
+  end
 end
-
-list = LinkedList.new
-
-list.add(3)
-list.add(5)
-list.add_at(1, 11)
-list.add_at(0, 13)
-
-puts list.get(2)
-# => 11
-
-puts list.get(3)
-# => 5
-
-# 13 3 11 5
-
-p list.to_a
