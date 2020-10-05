@@ -1,5 +1,1 @@
-const number = 5;
-
-number.then((value) => {
-  console.log(value);
-});
+console.log(5 * parseInt('five'))

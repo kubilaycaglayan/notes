@@ -1,9 +1,9 @@
 const req1 = new Promise(function(resolve, reject) {
-	setTimeout(function() { resolve('First!'); }, 2000);
+	setTimeout(function() { reject('First!'); }, 2000);
 });
 
 const req2 = new Promise(function(resolve, reject) {
-	setTimeout(function() { reject('Second!'); }, 1000);
+	setTimeout(function() { resolve('Second!'); }, 1000);
 });
 
 Promise.race([req1, req2])

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working With APIs</title>
+</head>
+<body>
+  <main>
+    <form action="">
+      <input id='search_key' type="text">
+      <button id="button">Search Gif</button>
+    </form>
+    <img src="#" alt="gif is here">
+  </main>
+  <script>
+
+
+    const api_key = 'MdbN6KNYzu7DTK1te4OyrLSqBvjMLEWF'
+    const img = document.querySelector('img')
+    const button = document.getElementById('button')
+    let result;
+    const getInput = function(loadDefault) {
+      let search_key = document.getElementById('search_key').value
+      if (loadDefault) {
+        search_key = 'cats'
+      }
+      return search_key
+    }
+
+    const loadImage = function loadImage(loadDefault = true) {
+      const search_key = getInput(loadDefault)
+      fetch(`https://api.giphy.com/v1/gifs/translate?s=${search_key}&api_key=${api_key}`)
+      .then(
+        (response) => {
+          result = response;
+          return response.json()
+        }
+      )
+      .then(
+        (response) => {
+          img.src = response.data.images.original.url
+        }
+      )
+      .catch(
+        (err) => {
+          console.log(err)
+          loadImage(true)
+        }
+      )
+    }
+    loadImage()
+    button.addEventListener('click', (event) => {
+      event.preventDefault()
+      loadImage(false)
+    })
+  </script>
+</body>
+</html>
