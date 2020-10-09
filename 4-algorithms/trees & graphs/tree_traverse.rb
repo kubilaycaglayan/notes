@@ -32,8 +32,8 @@ def post_order(node)
     return ''
   end
 
-  result = pre_order(node.left)
-  result += pre_order(node.right)
+  result = post_order(node.left)
+  result += post_order(node.right)
   result += "#{node.data} "
 end
 
