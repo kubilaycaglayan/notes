@@ -2,6 +2,7 @@ require_relative './node'
 
 class LinkedList
   attr_reader :size
+  attr_accessor :head
 
   def initialize
     @head = nil
