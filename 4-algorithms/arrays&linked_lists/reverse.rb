@@ -10,7 +10,7 @@ def reverse(head)
   curr = head.head
   next_node = head.head.next_node
 
-  until next_node.nil?
+  until curr.nil?
     curr.next_node = prev
     prev = curr
     curr = next_node
@@ -23,5 +23,5 @@ end
 
 reverse(head)
 
-p head.head
+p head.to_a
 puts
