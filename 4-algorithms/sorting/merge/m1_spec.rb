@@ -30,8 +30,6 @@ def merge_sort(array1, array2)
 end
 
 system 'clear'
-p merge_sort([1, 3, 9, 11], [2, 4, 6, 8])
-# => [1, 2, 3, 4, 6, 8, 9, 11]
 
 describe 'merge_sort' do
   let(:arr1) { [1, 3, 9, 11] }
