@@ -31,7 +31,7 @@ To get a local copy up and running follow these simple example steps.
 ### Run tests
 
 - There is no automated tests for this project.
-
+- For the updated algorithm challenges that are ending with file name `_spec.rb`, every test suit case is attached to the same file.
 
 ## Authors
 
@@ -56,6 +56,8 @@ Give a ⭐️ if you like this project!
 
 - Microverse
 - Odin Project
+- LeetCode
+- Repl
 
 ## 📝 License
 
