@@ -11,7 +11,6 @@ def is_match(string, regx)
   asteriks = false
 
   while i < string.size && j < regx.size
-    puts "check: #{string[i]} #{regx[j]}"
     asteriks = false
 
     if eq?(string[i], regx[j])
@@ -35,6 +34,8 @@ def is_match(string, regx)
         else
           return false
         end
+      else
+        return false
       end
     else
       return false
@@ -42,6 +43,7 @@ def is_match(string, regx)
   end
 
   return false if i < string.size
+  return false if j < regx.size && regx[-1] != '*'
   true
 end
 
@@ -60,7 +62,10 @@ describe 'is_match' do
     expect(is_match 'aab', 'c*a*b').to be true
   end
   it 'Checks the string with a given regex and returns a boolean' do
-    expect(is_match 'mississippi', 'mis*is*p*.').to be true
+    expect(is_match 'mississippi', 'mis*is*p*.').to be false
+  end
+  it 'Checks the string with a given regex and returns a boolean' do
+    expect(is_match "ab", ".*c").to be false
   end
 end
 
